@@ -1,4 +1,4 @@
-import { Download, Mail, MapPin } from "lucide-react";
+import { CalendarClock, Download, Mail, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { resume } from "@/data/resume";
@@ -73,9 +73,18 @@ export function Hero() {
                 <Download /> {t.hero.downloadCv}
               </a>
             </Button>
+            <Button asChild size="lg" variant="outline">
+              <a
+                href={resume.scheduleUrl}
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                <CalendarClock /> {t.hero.scheduleMeeting}
+              </a>
+            </Button>
             <Button
               size="lg"
-              variant="outline"
+              variant="ghost"
               onClick={() => scrollToId("contact")}
             >
               <Mail /> {t.hero.contactMe}

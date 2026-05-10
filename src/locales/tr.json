@@ -15,7 +15,8 @@
   "hero": {
     "greeting": "Merhaba 👋, ben",
     "downloadCv": "CV İndir",
-    "contactMe": "Bana ulaş"
+    "contactMe": "Bana ulaş",
+    "scheduleMeeting": "Görüşme planla"
   },
   "section": {
     "profile": "Profil",

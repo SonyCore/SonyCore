@@ -15,7 +15,8 @@
   "hero": {
     "greeting": "سلام 👋، من",
     "downloadCv": "دانلود رزومه",
-    "contactMe": "تماس با من"
+    "contactMe": "تماس با من",
+    "scheduleMeeting": "رزرو جلسه"
   },
   "section": {
     "profile": "پروفایل",
