@@ -1,16 +1,14 @@
 import { Github, Linkedin, Mail, Send, Youtube } from "lucide-react";
 import { resume } from "@/data/resume";
 import { Button } from "@/components/ui/button";
-import { useLocale } from "@/hooks/use-locale";
 
 export function Footer() {
-  const { t } = useLocale();
   const year = new Date().getFullYear();
   return (
     <footer className="border-t bg-muted/30">
       <div className="container flex flex-col items-center justify-between gap-4 py-8 md:flex-row">
         <p className="text-sm text-muted-foreground">
-          © {year} {resume.name}. {t.footer.builtWith}
+          © {year} {resume.name}.
         </p>
         <div className="flex items-center gap-1">
           <Button asChild variant="ghost" size="icon" aria-label="GitHub">
