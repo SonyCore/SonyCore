@@ -1,0 +1,189 @@
+{
+  "nav": {
+    "home": "Ana Sayfa",
+    "about": "Hakkında",
+    "experience": "Deneyim",
+    "skills": "Yetenekler",
+    "projects": "Projeler",
+    "github": "GitHub",
+    "blog": "Blog",
+    "certificates": "Sertifikalar",
+    "contact": "İletişim",
+    "openMenu": "Menüyü aç",
+    "languageLabel": "Dil"
+  },
+  "hero": {
+    "greeting": "Merhaba 👋, ben",
+    "downloadCv": "CV İndir",
+    "contactMe": "Bana ulaş"
+  },
+  "section": {
+    "profile": "Profil",
+    "aboutTitle": "Hakkımda",
+    "career": "Kariyer",
+    "experienceTitle": "Deneyim",
+    "toolbox": "Araç Kutusu",
+    "skillsTitle": "Yetenekler",
+    "work": "İşler",
+    "projectsTitle": "Projeler",
+    "activity": "Etkinlik",
+    "githubTitle": "GitHub",
+    "writing": "Yazılar",
+    "blogTitle": "Blog",
+    "credentials": "Belgeler",
+    "certsAndLangsTitle": "Sertifikalar ve Diller",
+    "reachOut": "Ulaşın",
+    "contactTitle": "İletişim"
+  },
+  "resume": {
+    "title": "Yazılım Mühendisi",
+    "specialty": "Backend ve DevOps",
+    "tagline": "Golang • Python • Linux • Açık kaynak",
+    "about": "Kendi kendine yetişmiş bir yazılım mühendisiyim. Yazılım geliştirmeye tutkuyla bağlıyım ve Golang ile Python gibi dillerde uzmanlığım var. Görevleri otomatikleştirme, araçlar geliştirme ve platformlar (örneğin Golang ile web uygulamaları) inşa etme konusunda yetenekliyim ve açık kaynak projelerine aktif olarak katkıda bulunuyorum."
+  },
+  "softSkills": {
+    "Communication": {
+      "name": "İletişim",
+      "detail": "Karmaşık teknik kavramları ve çözümleri teknik ve teknik olmayan kitlelere aktarmak."
+    },
+    "Adaptability": {
+      "name": "Uyum Yeteneği",
+      "detail": "Verimli teslimat için değişen proje gereksinimlerine, teknolojilere ve takım dinamiklerine hızla uyum sağlamak."
+    },
+    "Team Collaboration": {
+      "name": "Takım Çalışması",
+      "detail": "Destekleyici, kapsayıcı takım ortamları oluşturmak ve proje başarısı için kolektif güçlerden yararlanmak."
+    },
+    "Time Management": {
+      "name": "Zaman Yönetimi",
+      "detail": "Yüksek kalite standartlarını koruyarak görevleri önceliklendirmek ve zamanı etkili biçimde yönetmek."
+    }
+  },
+  "skillCategories": {
+    "Programming Languages": "Programlama Dilleri",
+    "DevOps & Tools": "DevOps ve Araçlar",
+    "Databases": "Veritabanları",
+    "Frameworks": "Çatılar"
+  },
+  "proficiency": {
+    "Native / Bilingual": "Anadil / İki Dilli",
+    "Proficient": "Yetkin",
+    "Basic": "Temel"
+  },
+  "languages": {
+    "Persian": "Farsça",
+    "English": "İngilizce",
+    "Turkish": "Türkçe"
+  },
+  "experience": {
+    "present": "Hâlen",
+    "currentBadge": "Şu an",
+    "items": {
+      "qubitorbit": {
+        "role": "Backend Geliştirici ve Infrastructure",
+        "bullets": [
+          "Platform için backend sistemleri ve geliştirici araçları üretiyorum.",
+          "Dağıtık bir mühendislik ekibinin parçası olarak uzaktan çalışıyorum."
+        ]
+      },
+      "arvancloud": {
+        "role": "Backend Geliştirici",
+        "bullets": [
+          "Golang ile video kodlama backend'i için gelişmiş bir ffmpeg sarmalayıcısının bakımını yaptım.",
+          "Bir PHP backend monolith uygulamasını Golang kullanarak yeni bir mikroservis mimarisine dönüştürdüm."
+        ]
+      },
+      "spara": {
+        "role": "Yazılım Mühendisi",
+        "bullets": [
+          "Ana bilgisayarlardaki ve hizmetlerdeki güvenlik açıklarını tespit eden ve ayrıntılı bilgi gösteren platform panelleri geliştirdim. Performans için Golang'i, yeniden kullanılabilirlik için ReactJS'i kullandım.",
+          "Hostlarda sistematik arama yapmak, hizmetleri tanımlamak ve CVE'leriyle birlikte güvenlik açıklarını bulmak için Golang ve Docker konteynerleştirme SDK'sı kullanarak gezgin benzeri bir ajan ve C2 geliştirdim.",
+          "Performanslı host taraması, hizmet tanımlama ve açık port tespiti için Golang ile özel bir Nmap kütüphanesini entegre ederek ajan yeteneklerini geliştirdim.",
+          "Dağıtımı kolaylaştırmak ve DevOps iş akışlarına entegrasyonu kolaylaştırmak için projeleri otomatize ettim ve konteynerleştirdim."
+        ]
+      },
+      "konect": {
+        "role": "Backend Geliştirici",
+        "bullets": [
+          "Güvenli kullanıcı izinleri ve veri erişimi sağlamak için sunucu tarafı bir uygulamada tam CRUD ile rol tabanlı bir erişim kontrol sistemi tasarladım ve uyguladım.",
+          "Bir web uygulaması için RESTful bir API uyguladım; uç noktaları tasarladım ve sorunsuz entegrasyon için ön uç ekibiyle işbirliği yaptım.",
+          "Pypylon kütüphanesini kullanarak bir makine görüşü uygulaması için Basler kamera sıcaklığının gerçek zamanlı izlenmesi ve kontrolünü sağlayan özel bir API geliştirdim.",
+          "Linux ve web projeleri için teknik dokümantasyon geliştirdim ve sürdürdüm."
+        ]
+      },
+      "sharif": {
+        "role": "Linux Yöneticisi",
+        "bullets": [
+          "Araç plakası tespiti alanındaki gömülü sistem projeleri için Python otomasyon betikleri geliştirdim.",
+          "Docker konteynerlerini kontrol etmek üzere PHP tabanlı bir web arayüzüyle etkileşim kuran bir Python modülü oluşturdum.",
+          "Dosya erişim sürelerini iyileştirmek ve veri bütünlüğünü sağlamak için birden çok lokasyona sahip büyük ölçekli kurumsal bir ağda Ağ Dosya Sistemini (NFS) uyguladım.",
+          "NFS ağındaki hassas verileri korumak için güvenlik duvarı kuralları ve izin yönetimi gibi güvenlik önlemleri uyguladım.",
+          "Birden çok sunucuda Linux OS imajı dağıtımını eşzamanlı olarak otomatikleştirmek için Bash betikleri yazdım.",
+          "Ubuntu, CentOS, LFS ve Debian dahil Linux dağıtımlarıyla çalıştım."
+        ]
+      }
+    }
+  },
+  "projects": {
+    "viewOnGithub": "GitHub'da görüntüle",
+    "items": {
+      "namira-core": {
+        "description": "VPN proxy yapılandırmaları için yüksek performanslı, kendi kendine barındırılan bir kalite güvence araç seti. VMess, VLESS, Trojan ve Shadowsocks bağlantılarını gerçek TCP el sıkışmaları ve gecikme ölçümleriyle doğrular, kıyaslar ve sıralar."
+      },
+      "xraygen": {
+        "description": "XRay JSON yapılandırmaları üretir ve sunucu tarafında XRay dağıtımını otomatikleştirir."
+      },
+      "cfscanner": {
+        "description": "Cloudflare Tarayıcı — bu projenin Golang bölümünü yazdım."
+      },
+      "gfwknock": {
+        "description": "Paket parçalama yöntemiyle GFW tespitini atlama — Golang ile yazılmış bir PoC."
+      },
+      "github-search-cli": {
+        "description": "GitHub içeriklerinde arama yapmak için Python ile yazılmış GitHub arama API'si."
+      },
+      "djangomq": {
+        "description": "RabbitMQ / AMQP protokolü kullanarak mesaj gönderip alan RESTful bir API."
+      },
+      "sonarping": {
+        "description": "ICMP istekleri göndermek için Python ile yazılmış çoklu ping aracı."
+      }
+    }
+  },
+  "github": {
+    "contributionGraph": "Katkı grafiği",
+    "viewProfile": "Profili gör"
+  },
+  "certificates": {
+    "heading": "Sertifikalar",
+    "languagesHeading": "Diller",
+    "items": [
+      "Golang Programlama — California Üniversitesi, Irvine",
+      "Python Programlama — Meta",
+      "Sürüm Kontrolü — Meta",
+      "ACCA — ArvanCloud"
+    ]
+  },
+  "contact": {
+    "blurb": "Bir fırsatınız mı, sorunuz mu var, yoksa sadece selam mı vermek istiyorsunuz? Bana bir mesaj gönderin — e-posta istemciniz şu adrese hazır olarak açılır: ",
+    "blurbSuffix": ".",
+    "name": "Ad",
+    "email": "E-posta",
+    "message": "Mesaj",
+    "placeholderName": "Adınız",
+    "placeholderMessage": "Üzerinde çalıştığınız şey hakkında biraz bahsedin…",
+    "sendViaMail": "E-posta ile gönder",
+    "openMailto": "Doğrudan mailto'yu aç"
+  },
+  "footer": { "builtWith": "React, Vite ve shadcn/ui ile yapıldı." },
+  "misc": { "backToTop": "Yukarı dön", "loading": "Yükleniyor" },
+  "blog": {
+    "readMore": "Devamını oku",
+    "noPosts": "Henüz yazı yok — yakında tekrar bakın.",
+    "minRead": "dk okuma",
+    "close": "Kapat",
+    "publishedOn": "Yayınlandı",
+    "allPosts": "Tüm yazılar",
+    "discussOnGithub": "GitHub'da tartış"
+  }
+}
