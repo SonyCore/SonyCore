@@ -38,24 +38,24 @@ export function Hero() {
         style={{ animationDelay: "-6s" }}
       />
 
-      <div className="container flex flex-col items-center gap-10 py-16 text-center md:grid md:grid-cols-[1fr_auto] md:items-center md:gap-12 md:py-22 md:text-start">
+      <div className="container flex min-h-[calc(100svh-4rem)] flex-col items-center gap-5 py-10 text-center md:grid md:min-h-0 md:grid-cols-[1fr_auto] md:items-center md:gap-12 md:py-22 md:text-start">
         {/* Text block — order-2 on mobile so the avatar sits above it; default order on md+ so it occupies the wide grid column. */}
         <div
-          className="order-2 flex animate-fade-in flex-col items-center gap-6 md:order-none md:items-start"
+          className="order-2 flex flex-1 animate-fade-in flex-col items-center gap-4 md:order-none md:flex-none md:items-start md:gap-6"
           style={{ animationDelay: "120ms", animationFillMode: "both" }}
         >
-          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
+          <h1 className="text-3xl font-bold tracking-tight sm:text-5xl md:text-6xl">
             <span className="bg-gradient-to-r from-foreground to-foreground/60 bg-clip-text text-transparent">
               {resume.name}
             </span>
           </h1>
 
-          <div className="flex flex-wrap items-baseline justify-center gap-x-3 gap-y-1 md:justify-start">
-            <p className="text-xl font-medium text-muted-foreground md:text-2xl">
+          <div className="flex flex-wrap items-baseline justify-center gap-x-3 gap-y-0.5 md:justify-start">
+            <p className="text-lg font-medium text-muted-foreground md:text-2xl">
               {t.resume.title}
             </p>
             <span className="hidden text-muted-foreground/40 md:inline">·</span>
-            <p className="font-mono text-sm font-medium text-primary md:text-base">
+            <p className="font-mono text-xs font-medium text-primary md:text-base">
               {t.resume.specialty}
             </p>
           </div>
@@ -64,28 +64,28 @@ export function Hero() {
             {t.resume.tagline}
           </p>
 
-          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-muted-foreground md:justify-start">
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-xs text-muted-foreground md:gap-x-6 md:text-sm md:justify-start">
             <span className="inline-flex items-center gap-1.5">
-              <MapPin className="h-4 w-4" /> {resume.location}
+              <MapPin className="h-3.5 w-3.5 md:h-4 md:w-4" /> {resume.location}
             </span>
             <a
               className="inline-flex items-center gap-1.5 font-mono hover:text-foreground"
               href={`mailto:${resume.email}`}
             >
-              <Mail className="h-4 w-4" /> {resume.email}
+              <Mail className="h-3.5 w-3.5 md:h-4 md:w-4" /> {resume.email}
             </a>
             {/* <span className="inline-flex items-center gap-1.5 font-mono">
               <Phone className="h-4 w-4" /> {resume.phone}
             </span> */}
           </div>
 
-          <div className="flex w-full flex-col items-stretch gap-3 pt-2 sm:w-auto sm:flex-row sm:flex-wrap sm:items-center sm:justify-center md:justify-start">
-            <Button asChild size="lg">
+          <div className="flex w-full flex-wrap items-center justify-center gap-2 pt-1 sm:w-auto sm:gap-3 md:justify-start">
+            <Button asChild className="flex-1 sm:flex-none md:size-default" size="default">
               <a href="/resume.pdf" download="Sonia-Fatholahi-Resume.pdf">
                 <Download /> {t.hero.downloadCv}
               </a>
             </Button>
-            <Button asChild size="lg" variant="outline">
+            <Button asChild className="flex-1 sm:flex-none" size="default" variant="outline">
               <a
                 href={resume.scheduleUrl}
                 target="_blank"
@@ -95,6 +95,7 @@ export function Hero() {
               </a>
             </Button>
             <Button
+              className="hidden md:inline-flex"
               size="lg"
               variant="ghost"
               onClick={() => scrollToId("contact")}
@@ -103,7 +104,7 @@ export function Hero() {
             </Button>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-1 md:justify-start">
+          <div className="mt-auto flex flex-wrap items-center justify-center gap-0.5 md:mt-0 md:gap-1 md:justify-start">
             <Button asChild variant="ghost" size="icon" aria-label="GitHub">
               <a
                 href={resume.socials.github}
@@ -158,7 +159,7 @@ export function Hero() {
               aria-hidden
               className="absolute -inset-2 rounded-full bg-gradient-to-tr from-primary/40 via-primary/10 to-transparent blur-xl"
             />
-            <Avatar className="relative h-36 w-36 border-4 border-background shadow-xl ring-1 ring-border transition-transform duration-500 hover:scale-[1.02] sm:h-44 sm:w-44 md:h-64 md:w-64">
+            <Avatar className="relative h-28 w-28 border-4 border-background shadow-xl ring-1 ring-border transition-transform duration-500 hover:scale-[1.02] sm:h-44 sm:w-44 md:h-64 md:w-64">
               <AvatarImage src="/avatar.png" alt={resume.name} />
               <AvatarFallback className="text-5xl">
                 {resume.name
