@@ -6,6 +6,7 @@ import { ArrowLeft, ArrowUpRight, Calendar, Clock } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { LocaleToggle } from "@/components/locale-toggle";
 import { Footer } from "@/components/sections/footer";
@@ -39,9 +40,12 @@ export function BlogPostPage() {
             to="/"
             className="flex items-center gap-2 font-semibold tracking-tight"
           >
-            <span className="flex h-8 w-8 items-center justify-center rounded-md bg-primary font-mono text-sm font-semibold text-primary-foreground">
-              {initials}
-            </span>
+            <Avatar className="h-8 w-8 ring-1 ring-border">
+              <AvatarImage src="/avatar.png" alt={resume.name} />
+              <AvatarFallback className="bg-primary font-mono text-xs font-semibold text-primary-foreground">
+                {initials}
+              </AvatarFallback>
+            </Avatar>
             <span className="hidden sm:inline">{resume.name}</span>
           </Link>
 
