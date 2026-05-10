@@ -1,0 +1,188 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "experience": "Experience",
+    "skills": "Skills",
+    "projects": "Projects",
+    "github": "GitHub",
+    "blog": "Blog",
+    "certificates": "Certificates",
+    "contact": "Contact",
+    "openMenu": "Open menu",
+    "languageLabel": "Language"
+  },
+  "hero": {
+    "greeting": "Hi there 👋, I'm",
+    "downloadCv": "Download CV",
+    "contactMe": "Contact me"
+  },
+  "section": {
+    "profile": "Profile",
+    "aboutTitle": "About Me",
+    "career": "Career",
+    "experienceTitle": "Experience",
+    "toolbox": "Toolbox",
+    "skillsTitle": "Skills",
+    "work": "Work",
+    "projectsTitle": "Projects",
+    "activity": "Activity",
+    "githubTitle": "GitHub",
+    "writing": "Writing",
+    "blogTitle": "Blog",
+    "credentials": "Credentials",
+    "certsAndLangsTitle": "Certificates & Languages",
+    "reachOut": "Reach out",
+    "contactTitle": "Contact"
+  },
+  "resume": {
+    "title": "Senior Software Engineer",
+    "specialty": "Backend & DevOps",
+    "tagline": "Golang • Python • Linux • Open-source",
+    "about": "I'm a self-taught senior software engineer passionate about software development with expertise in languages such as Golang and Python. Skilled in automating tasks, crafting tools and developing platforms (e.g., web applications using Golang), and active participation in open-source projects."
+  },
+  "softSkills": {
+    "Communication": {
+      "name": "Communication",
+      "detail": "Conveying complex technical concepts and solutions to technical and non-technical audiences."
+    },
+    "Adaptability": {
+      "name": "Adaptability",
+      "detail": "Quickly adapt to changing project requirements, technologies, and team dynamics for efficient delivery."
+    },
+    "Team Collaboration": {
+      "name": "Team Collaboration",
+      "detail": "Foster supportive, inclusive team environments and leverage collective strengths for project success."
+    },
+    "Time Management": {
+      "name": "Time Management",
+      "detail": "Prioritize tasks and manage time effectively while maintaining high-quality standards."
+    }
+  },
+  "skillCategories": {
+    "Programming Languages": "Programming Languages",
+    "DevOps & Tools": "DevOps & Tools",
+    "Databases": "Databases",
+    "Frameworks": "Frameworks"
+  },
+  "proficiency": {
+    "Native / Bilingual": "Native / Bilingual",
+    "Proficient": "Proficient",
+    "Basic": "Basic"
+  },
+  "languages": {
+    "Persian": "Persian",
+    "English": "English",
+    "Turkish": "Turkish"
+  },
+  "experience": {
+    "present": "Present",
+    "currentBadge": "Now",
+    "items": {
+      "qubitorbit": {
+        "role": "Infrastructure & Back End Developer",
+        "bullets": [
+          "Building backend systems and developer tooling for the platform."
+        ]
+      },
+      "arvancloud": {
+        "role": "Backend Developer",
+        "bullets": [
+          "Maintained advanced ffmpeg wrapper for video encoding backend with Golang.",
+          "Converted a PHP backend monolith app to a new microservice architecture using Golang."
+        ]
+      },
+      "spara": {
+        "role": "Software Engineer",
+        "bullets": [
+          "Developed platform panels to identify vulnerabilities and display detailed information about hosts and their services. Utilized Golang for performance and ReactJS for reusability.",
+          "Developed a crawler-like agent & C2 using Golang and the Docker containerization SDK to systematically search through hosts, identify services, and pinpoint vulnerabilities along with their CVEs.",
+          "Enhanced the agent's capabilities by integrating a custom Nmap library using Golang for performant host scanning, service identification, and detection of open ports.",
+          "Automated and containerized projects to streamline deployment and ease integration into DevOps workflows."
+        ]
+      },
+      "konect": {
+        "role": "Backend Developer",
+        "bullets": [
+          "Designed and implemented a role-based access control system with full CRUD for a server-side application to ensure secure user permissions and data access.",
+          "Implemented a RESTful API for a web application; designed endpoints and collaborated with the front-end team for seamless integration.",
+          "Developed a custom API for a machine vision application using the Pypylon library, enabling real-time monitoring and control of Basler camera temperature.",
+          "Developed and maintained technical documentation for Linux and web projects."
+        ]
+      },
+      "sharif": {
+        "role": "Linux Administrator",
+        "bullets": [
+          "Developed Python automation scripts for embedded-systems projects in the field of car plate detection.",
+          "Built a Python module for interacting with a PHP-based web interface to control Docker containers.",
+          "Implemented Network File System (NFS) on a large-scale enterprise network with multiple locations to improve file access times and ensure data integrity.",
+          "Implemented security measures such as firewall rules and permissions management to protect sensitive data on the NFS network.",
+          "Wrote Bash scripts to automate Linux OS image deployment across multiple servers simultaneously.",
+          "Worked with Linux distros including Ubuntu, CentOS, LFS, and Debian."
+        ]
+      }
+    }
+  },
+  "projects": {
+    "viewOnGithub": "View on GitHub",
+    "items": {
+      "namira-core": {
+        "description": "A high-performance, self-hosted quality assurance toolkit for VPN proxy configurations. Validates, benchmarks, and ranks VMess, VLESS, Trojan, and Shadowsocks connections with real TCP handshakes and latency measurements."
+      },
+      "xraygen": {
+        "description": "Generates XRay JSON configs and automates XRay deployment on the server side."
+      },
+      "cfscanner": {
+        "description": "Cloud Flare Scanner — wrote the Golang section of this project."
+      },
+      "gfwknock": {
+        "description": "Bypass GFW detection with packet fragmentation method PoC, written in Golang."
+      },
+      "github-search-cli": {
+        "description": "GitHub search API written in Python for searching through GitHub contents."
+      },
+      "djangomq": {
+        "description": "RESTful API that sends & receives messages using the RabbitMQ / AMQP protocol."
+      },
+      "sonarping": {
+        "description": "A multi-ping tool for sending ICMP requests, written in Python."
+      }
+    }
+  },
+  "github": {
+    "contributionGraph": "Contribution graph",
+    "viewProfile": "View profile"
+  },
+  "certificates": {
+    "heading": "Certificates",
+    "languagesHeading": "Languages",
+    "items": [
+      "Programming in Golang — University of California, Irvine",
+      "Programming in Python — Meta",
+      "Version Control — Meta",
+      "ACCA — ArvanCloud"
+    ]
+  },
+  "contact": {
+    "blurb": "Have an opportunity, a question, or just want to say hi? Send me a message — it opens your mail client pre-filled to ",
+    "blurbSuffix": ".",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "placeholderName": "Jane Doe",
+    "placeholderMessage": "Tell me a bit about what you're working on…",
+    "sendViaMail": "Send via mail",
+    "openMailto": "Open mailto directly"
+  },
+  "footer": { "builtWith": "Built with React, Vite & shadcn/ui." },
+  "misc": { "backToTop": "Back to top", "loading": "Loading" },
+  "blog": {
+    "readMore": "Read more",
+    "noPosts": "No posts yet — check back soon.",
+    "minRead": "min read",
+    "close": "Close",
+    "publishedOn": "Published",
+    "allPosts": "All posts",
+    "discussOnGithub": "Discuss on GitHub"
+  }
+}
