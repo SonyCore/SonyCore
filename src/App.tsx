@@ -1,5 +1,7 @@
 import { lazy, Suspense } from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import { HomePage } from "@/pages/home";
 import { Loading } from "@/components/loading";
 
@@ -23,6 +25,8 @@ export default function App() {
           />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
+        <Analytics />
+        <SpeedInsights />
       </div>
     </BrowserRouter>
   );
