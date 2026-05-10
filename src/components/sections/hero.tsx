@@ -29,11 +29,11 @@ export function Hero() {
         style={{ animationDelay: "-6s" }}
       />
 
-      <div className="container grid items-center gap-12 py-20 md:grid-cols-[1fr_auto] md:py-28">
+      <div className="container grid items-center gap-12 py-20 md:grid-cols-[1fr_auto] md:py-22">
         <div className="animate-fade-in space-y-6">
-          <p className="font-mono text-sm font-medium uppercase tracking-[0.18em] text-muted-foreground">
+          {/* <p className="font-mono text-sm font-medium uppercase tracking-[0.18em] text-muted-foreground">
             {t.hero.greeting}
-          </p>
+          </p> */}
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
             <span className="bg-gradient-to-r from-foreground to-foreground/60 bg-clip-text text-transparent">
               {resume.name}
