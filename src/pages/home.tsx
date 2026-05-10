@@ -27,6 +27,24 @@ export function HomePage() {
     return () => window.cancelAnimationFrame(id);
   }, [location.hash]);
 
+  // Prefetch the blog-post chunk during browser idle so that clicking a post
+  // doesn't pay the network round-trip — the chunk is already cached by then.
+  useEffect(() => {
+    const win = window as Window & {
+      requestIdleCallback?: (cb: () => void) => number;
+      cancelIdleCallback?: (id: number) => void;
+    };
+    const run = () => {
+      void import("@/pages/blog-post").catch(() => {});
+    };
+    if (win.requestIdleCallback) {
+      const handle = win.requestIdleCallback(run);
+      return () => win.cancelIdleCallback?.(handle);
+    }
+    const handle = window.setTimeout(run, 1500);
+    return () => window.clearTimeout(handle);
+  }, []);
+
   return (
     <>
       <NavBar />
