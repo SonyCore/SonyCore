@@ -15,7 +15,8 @@
   "hero": {
     "greeting": "Hi there 👋, I'm",
     "downloadCv": "Download CV",
-    "contactMe": "Contact me"
+    "contactMe": "Contact me",
+    "scheduleMeeting": "Schedule a meeting"
   },
   "section": {
     "profile": "Profile",

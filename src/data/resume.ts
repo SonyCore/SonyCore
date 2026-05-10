@@ -26,6 +26,7 @@ export const resume = {
   email: "soniafatholahi@proton.me",
   phone: "",
   location: "Türkiye, Ankara",
+  scheduleUrl: "https://calendar.app.google/bcvLmj3UJ3N8kvCQ8",
   socials: {
     github: "https://github.com/SonyCore",
     linkedin: "https://www.linkedin.com/in/soniafatholahi",
