@@ -24,7 +24,7 @@ const AvatarImage = React.forwardRef<
   return (
     <img
       ref={ref}
-      className={cn("aspect-square h-full w-full object-cover", className)}
+      className={cn("absolute inset-0 h-full w-full object-cover", className)}
       onError={() => {
         setErrored(true);
         onLoadingError?.();
