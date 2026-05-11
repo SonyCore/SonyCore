@@ -140,8 +140,8 @@
       "gfwknock": {
         "description": "Paket parçalama yöntemiyle GFW tespitini atlama — Golang ile yazılmış bir PoC."
       },
-      "github-search-cli": {
-        "description": "GitHub içeriklerinde arama yapmak için Python ile yazılmış GitHub arama API'si."
+      "rabbitmq-perobject-dashboard": {
+        "description": "RabbitMQ Per Object Dashboard, kuyruk başına / değişim başına RabbitMQ metrikleri ile birikmiş işleri, takılı tüketicileri ve yönlendirme sorunlarını hata ayıklamak için. rabbitmq_prometheus eklentisinin /metrics/per-object uç noktası tarafından desteklenir."
       },
       "djangomq": {
         "description": "RabbitMQ / AMQP protokolü kullanarak mesaj gönderip alan RESTful bir API."

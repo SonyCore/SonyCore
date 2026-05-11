@@ -123,6 +123,11 @@ export const resume = {
       url: "https://github.com/SonyCore/XRayGen",
     },
     {
+      id: "rabbitmq-perobject-dashboard",
+      name: "RabbitMQ Per Object Dashboard",
+      url: "https://github.com/SonyCore/rabbitmq-per-object-dashboard",
+    },
+    {
       id: "cfscanner",
       name: "CFScanner",
       url: "https://github.com/SonyCore/CFScanner",
@@ -131,11 +136,6 @@ export const resume = {
       id: "gfwknock",
       name: "gfwKnock",
       url: "https://github.com/SonyCore/gfwKnock",
-    },
-    {
-      id: "github-search-cli",
-      name: "Github Search Cli",
-      url: "https://github.com/SonyCore/github-search-cli",
     },
     {
       id: "djangomq",

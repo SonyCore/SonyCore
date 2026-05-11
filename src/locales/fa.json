@@ -140,8 +140,8 @@
       "gfwknock": {
         "description": "دور زدن تشخیص GFW با روش قطعه‌قطعه‌سازی بسته‌ها — یک اثبات مفهوم نوشته‌شده با Golang."
       },
-      "github-search-cli": {
-        "description": "API جستجوی GitHub که با Python نوشته شده برای جستجو در محتوای GitHub."
+      "rabbitmq-perobject-dashboard": {
+        "description": "داشبورد RabbitMQ Per Object، یک متریک RabbitMQ برای هر صف / هر تبادل برای اشکال‌زدایی انباشت‌ها، مصرف‌کنندگان گیر کرده و مشکلات مسیریابی. با استفاده از نقطه پایانی /metrics/per-object افزونه rabbitmq_prometheus قدرت گرفته است."
       },
       "djangomq": {
         "description": "یک API به‌سبک RESTful که با استفاده از پروتکل RabbitMQ / AMQP پیام ارسال و دریافت می‌کند."
