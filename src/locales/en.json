@@ -139,8 +139,8 @@
       "gfwknock": {
         "description": "Bypass GFW detection with packet fragmentation method PoC, written in Golang."
       },
-      "github-search-cli": {
-        "description": "GitHub search API written in Python for searching through GitHub contents."
+      "rabbitmq-perobject-dashboard": {
+        "description": "RabbitMQ Per Object Dashboard, a per-queue / per-exchange RabbitMQ metrics for debugging backlogs, stuck consumers, and routing issues. Powered by the rabbitmq_prometheus plugin's /metrics/per-object endpoint."
       },
       "djangomq": {
         "description": "RESTful API that sends & receives messages using the RabbitMQ / AMQP protocol."
