@@ -38,7 +38,7 @@
   },
   "resume": {
     "title": "Yazılım Mühendisi Kıdemli",
-    "specialty": "Backend ve DevOps",
+    "specialty": "Backend ve DevSecOps",
     "tagline": "Golang • Python • Linux • Açık kaynak",
     "about": "Kendi kendine yetişmiş bir yazılım mühendisiyim. Yazılım geliştirmeye tutkuyla bağlıyım ve Golang ile Python gibi dillerde uzmanlığım var. Görevleri otomatikleştirme, araçlar geliştirme ve platformlar (örneğin Golang ile web uygulamaları) inşa etme konusunda yetenekliyim ve açık kaynak projelerine aktif olarak katkıda bulunuyorum."
   },
@@ -64,7 +64,8 @@
     "Programming Languages": "Programlama Dilleri",
     "DevOps & Tools": "DevOps ve Araçlar",
     "Databases": "Veritabanları",
-    "Frameworks": "Çatılar"
+    "Frameworks": "Çatılar",
+    "Security": "Güvenlik"
   },
   "proficiency": {
     "Native / Bilingual": "Anadil / İki Dilli",
@@ -81,17 +82,22 @@
     "currentBadge": "Şu an",
     "items": {
       "qubitorbit": {
-        "role": "Backend Geliştirici ve Infrastructure",
+        "role": "Backend Geliştirici ve Infrastructure (DevSecOps)",
         "bullets": [
           "Platform için backend sistemleri ve geliştirici araçları üretiyorum.",
-          "Dağıtık bir mühendislik ekibinin parçası olarak uzaktan çalışıyorum."
+          "Dağıtık bir mühendislik ekibinin parçası olarak uzaktan çalışıyorum.",
+          "WIP..."
         ]
       },
       "arvancloud": {
         "role": "Backend Geliştirici",
         "bullets": [
-          "Golang ile video kodlama backend'i için gelişmiş bir ffmpeg sarmalayıcısının bakımını yaptım.",
-          "Bir PHP backend monolith uygulamasını Golang kullanarak yeni bir mikroservis mimarisine dönüştürdüm."
+          "VaaS (Video as a Service) platformu için Golang'de çok bitratlı kodlama ve uyarlamalı HLS/DASH yayını destekleyen yüksek verimli bir ffmpeg sarmalayıcısı tasarladım ve bakımını yaptım.",
+          "Golang ve mesaj kuyrukları (RabbitMQ/Kafka) kullanarak otomatik yeniden deneme ve dead-letter işleme ile binlerce eş zamanlı dönüştürme işini destekleyen hataya dayanıklı video kodlama pipeline'ları oluşturdum.",
+          "Yatay ölçeklenebilirliği artırmak ve servisler arası bağımlılığı azaltmak için PHP monolith backend'ini Golang kullanarak dağıtık mikroservis mimarisine dönüştürdüm.",
+          "Kodlama pipeline SLI'larını izlemek, SLO'ları tanımlamak ve verim/gecikme düşüşlerinde uyarı vermek için Prometheus ve Grafana ile observability yığını tasarladım ve sürdürdüm.",
+          "VaaS platformu için nöbet rotasyonlarına katıldım ve olay müdahalesine öncülük ettim; pipeline arızalarını tespit ederek servis kullanılabilirliğini yeniden sağladım.",
+          "Darboğazları tespit etmek ve ortalama kurtarma süresini (MTTR) azaltmak için video işleme servisleri genelinde yapılandırılmış loglama ve distributed tracing uyguladım."
         ]
       },
       "spara": {

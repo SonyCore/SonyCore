@@ -47,18 +47,18 @@ export function Skills() {
   const { t } = useLocale();
   return (
     <Section id="skills" eyebrow={t.section.toolbox} title={t.section.skillsTitle}>
-      <div className="mx-auto grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mx-auto grid max-w-6xl gap-3 grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
         {Object.entries(resume.skills).map(([category, items]) => (
           <Card
             key={category}
             className="transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md"
           >
-            <CardHeader className="pb-3">
-              <CardTitle className="text-base">
+            <CardHeader className="p-4 pb-2">
+              <CardTitle className="text-sm">
                 {t.skillCategories[category as SkillCategoryKey] ?? category}
               </CardTitle>
             </CardHeader>
-            <CardContent className="flex flex-wrap gap-2 pt-0">
+            <CardContent className="flex flex-wrap gap-1.5 p-4 pt-0">
               {items.map((skill) => (
                 <SkillChip key={skill.name} skill={skill} />
               ))}

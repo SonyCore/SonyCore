@@ -72,8 +72,8 @@ export const resume = {
   ] satisfies ExperienceEntry[],
   skills: {
     "Programming Languages": [
-      { name: "Golang", icon: "go", url: "https://go.dev" },
       { name: "Python", icon: "python", url: "https://www.python.org" },
+      { name: "Golang", icon: "go", url: "https://go.dev" },
       {
         name: "JavaScript",
         icon: "javascript",
@@ -88,6 +88,17 @@ export const resume = {
     "DevOps & Tools": [
       { name: "Linux", icon: "linux", url: "https://www.kernel.org" },
       { name: "Docker", icon: "docker", url: "https://www.docker.com" },
+      { name: "Kubernetes", icon: "kubernetes", url: "https://kubernetes.io" },
+      { name: "Terraform", icon: "terraform", url: "https://www.terraform.io" },
+      { name: "Ansible", icon: "ansible", url: "https://www.ansible.com" },
+      { name: "Nexus", icon: "sonatype", url: "https://www.sonatype.com/nexus-repository-oss" },
+      { name: "Prometheus", icon: "prometheus", url: "https://prometheus.io" },
+      { name: "Grafana", icon: "grafana", url: "https://grafana.com" },
+      { name: "ELK Stack",
+        icon: "elk",
+        url: "https://www.elastic.co/what-is/elk-stack",
+      },
+      
       {
         name: "GitLab CI/CD",
         icon: "gitlab",
@@ -98,16 +109,30 @@ export const resume = {
     ],
     Databases: [
       {
+        "name": "ClickHouse",
+        "icon": "clickhouse",
+        "url": "https://clickhouse.com",
+      },
+      { name: "MongoDB", icon: "mongodb", url: "https://www.mongodb.com" },
+      {
         name: "PostgreSQL",
         icon: "postgresql",
         url: "https://www.postgresql.org",
       },
-      { name: "MongoDB", icon: "mongodb", url: "https://www.mongodb.com" },
       { name: "MySQL", icon: "mysql", url: "https://www.mysql.com" },
     ],
     Frameworks: [
-      { name: "ReactJS", icon: "react", url: "https://react.dev" },
-      { name: "NodeJS", icon: "nodedotjs", url: "https://nodejs.org" },
+      { name: "FastAPI", icon: "fastapi", url: "https://fastapi.tiangolo.com" },
+      { name: "Django", icon: "django", url: "https://www.djangoproject.com" },
+      { name: "Flask", icon: "flask", url: "https://flask.palletsprojects.com" },
+      { name: "Gin", icon: "gin", url: "https://gin-gonic.com" },
+      { name: "Echo", icon: "go", url: "https://echo.labstack.com" },
+      { name: "Fiber", icon: "go", url: "https://gofiber.io" },
+    ],
+    Security: [
+      { name: "Vault", icon: "vault", url: "https://www.vaultproject.io" },
+      { name: "Trivy", icon: "trivy", url: "https://trivy.dev" },
+      { name: "Snyk", icon: "snyk", url: "https://snyk.io" },
     ],
   } as Record<string, Skill[]>,
   projects: [
