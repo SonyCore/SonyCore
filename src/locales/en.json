@@ -38,7 +38,7 @@
   },
   "resume": {
     "title": "Senior Software Engineer",
-    "specialty": "Backend & DevOps",
+    "specialty": "Backend & DevSecOps",
     "tagline": "Golang • Python • Linux • Open-source",
     "about": "I'm a self-taught senior software engineer passionate about software development with expertise in languages such as Golang and Python. Skilled in automating tasks, crafting tools and developing platforms (e.g., web applications using Golang), and active participation in open-source projects."
   },
@@ -64,7 +64,8 @@
     "Programming Languages": "Programming Languages",
     "DevOps & Tools": "DevOps & Tools",
     "Databases": "Databases",
-    "Frameworks": "Frameworks"
+    "Frameworks": "Frameworks",
+    "Security": "Security"
   },
   "proficiency": {
     "Native / Bilingual": "Native / Bilingual",
@@ -81,16 +82,21 @@
     "currentBadge": "Now",
     "items": {
       "qubitorbit": {
-        "role": "Infrastructure & Back End Developer",
+        "role": "Infrastructure (DevSecOps) & Back End Developer",
         "bullets": [
-          "Building backend systems and developer tooling for the platform."
+          "Building backend systems and developer tooling for the platform.",
+          "WIP..."
         ]
       },
       "arvancloud": {
         "role": "Backend Developer",
         "bullets": [
-          "Maintained advanced ffmpeg wrapper for video encoding backend with Golang.",
-          "Converted a PHP backend monolith app to a new microservice architecture using Golang."
+          "Designed and maintained a high-throughput ffmpeg wrapper in Golang for the VaaS (Video as a Service) platform, enabling multi-bitrate transcoding and adaptive HLS/DASH streaming.",
+          "Built fault-tolerant video encoding pipelines using Golang and message queues (RabbitMQ/Kafka), supporting thousands of concurrent transcoding jobs with automatic retries and dead-letter handling.",
+          "Converted a PHP backend monolith to a distributed microservice architecture using Golang, improving horizontal scalability and reducing inter-service coupling.",
+          "Designed and maintained an observability stack with Prometheus and Grafana to track encoding pipeline SLIs, define SLOs, and alert on throughput and latency degradations.",
+          "Participated in on-call rotations and led incident response for the VaaS platform, diagnosing pipeline failures and restoring service availability.",
+          "Implemented structured logging and distributed tracing across video processing services to detect bottlenecks and reduce mean time to recovery (MTTR)."
         ]
       },
       "spara": {

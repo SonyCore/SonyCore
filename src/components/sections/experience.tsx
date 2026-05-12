@@ -27,14 +27,14 @@ export function Experience() {
                 className={cn(
                   "absolute -start-[2.4rem] top-2 flex h-7 w-7 items-center justify-center rounded-full border-2 bg-background",
                   isCurrent
-                    ? "border-primary text-primary"
+                    ? "border-green-500 text-green-500"
                     : "border-border text-primary",
                 )}
               >
                 {isCurrent && (
                   <span
                     aria-hidden
-                    className="absolute -inset-0.5 animate-ping rounded-full bg-primary/40"
+                    className="absolute -inset-0.5 animate-ping rounded-full bg-green-500/40"
                   />
                 )}
                 <Briefcase className="relative h-3.5 w-3.5" />

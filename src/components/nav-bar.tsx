@@ -48,9 +48,14 @@ export function NavBar() {
 
   function goToSection(id: string) {
     if (isHome) {
-      document
-        .getElementById(id)
-        ?.scrollIntoView({ behavior: "smooth", block: "start" });
+      const el = document.getElementById(id);
+      if (el) {
+        const HEADER_HEIGHT = 80;
+        window.scrollTo({
+          top: el.getBoundingClientRect().top + window.scrollY - HEADER_HEIGHT,
+          behavior: "smooth",
+        });
+      }
     } else {
       navigate(`/#${id}`);
     }
@@ -78,7 +83,7 @@ export function NavBar() {
           <span className="hidden sm:inline">{resume.name}</span>
         </Link>
 
-        <nav className="hidden items-center gap-1 lg:flex">
+        <nav className="hidden items-center gap-0.5 rounded-full border border-border/60 bg-muted/60 px-1.5 py-1.5 lg:flex">
           {navItems.map((item) => (
             <a
               key={item.id}
@@ -89,16 +94,13 @@ export function NavBar() {
               }}
               aria-current={active === item.id ? "page" : undefined}
               className={cn(
-                "rounded-md px-3 py-2 text-sm font-medium transition-colors hover:text-foreground",
+                "rounded-full px-3.5 py-1 text-sm font-medium transition-all duration-200",
                 active === item.id
-                  ? "text-foreground"
-                  : "text-muted-foreground",
+                  ? "bg-background text-foreground shadow-md ring-1 ring-border/40"
+                  : "text-muted-foreground hover:text-foreground hover:bg-background/40",
               )}
             >
               {item.label}
-              {active === item.id && (
-                <span className="ms-1 inline-block h-1 w-1 -translate-y-0.5 rounded-full bg-primary align-middle" />
-              )}
             </a>
           ))}
         </nav>
