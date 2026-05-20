@@ -1,6 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
 import { Section } from "@/components/section";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { resume, type Skill } from "@/data/resume";
 import { useLocale } from "@/hooks/use-locale";
 import type { Translation } from "@/lib/i18n";
@@ -43,27 +42,40 @@ function SkillChip({ skill }: { skill: Skill }) {
   );
 }
 
+function CategoryRow({
+  items,
+  label,
+}: {
+  items: Skill[];
+  label: string;
+}) {
+  return (
+    <div className="flex flex-col gap-3 border-b border-border/50 pb-5 last:border-0 last:pb-0 sm:flex-row sm:items-start sm:gap-6">
+      <div className="w-full shrink-0 sm:w-36 md:w-44">
+        <span className="inline-flex items-center rounded-md border border-border/60 bg-muted/60 px-2.5 py-1 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+          {label}
+        </span>
+      </div>
+      <div className="flex flex-wrap gap-2">
+        {items.map((skill) => (
+          <SkillChip key={skill.name} skill={skill} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export function Skills() {
   const { t } = useLocale();
   return (
     <Section id="skills" eyebrow={t.section.toolbox} title={t.section.skillsTitle}>
-      <div className="mx-auto grid max-w-6xl gap-3 grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+      <div className="mx-auto max-w-4xl space-y-5">
         {Object.entries(resume.skills).map(([category, items]) => (
-          <Card
+          <CategoryRow
             key={category}
-            className="transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md"
-          >
-            <CardHeader className="p-4 pb-2">
-              <CardTitle className="text-sm">
-                {t.skillCategories[category as SkillCategoryKey] ?? category}
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="flex flex-wrap gap-1.5 p-4 pt-0">
-              {items.map((skill) => (
-                <SkillChip key={skill.name} skill={skill} />
-              ))}
-            </CardContent>
-          </Card>
+            items={items}
+            label={t.skillCategories[category as SkillCategoryKey] ?? category}
+          />
         ))}
       </div>
     </Section>
