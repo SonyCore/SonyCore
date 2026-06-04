@@ -88,7 +88,7 @@
           "WIP..."
         ]
       },
-      "arvancloud": {
+      "private-ar": {
         "role": "Backend Developer",
         "bullets": [
           "Designed and maintained a high-throughput ffmpeg wrapper in Golang for the VaaS (Video as a Service) platform, enabling multi-bitrate transcoding and adaptive HLS/DASH streaming.",
@@ -99,7 +99,7 @@
           "Implemented structured logging and distributed tracing across video processing services to detect bottlenecks and reduce mean time to recovery (MTTR)."
         ]
       },
-      "spara": {
+      "private-sp": {
         "role": "Software Engineer",
         "bullets": [
           "Developed platform panels to identify vulnerabilities and display detailed information about hosts and their services. Utilized Golang for performance and ReactJS for reusability.",
@@ -108,7 +108,7 @@
           "Automated and containerized projects to streamline deployment and ease integration into DevOps workflows."
         ]
       },
-      "konect": {
+      "private-ko": {
         "role": "Backend Developer",
         "bullets": [
           "Designed and implemented a role-based access control system with full CRUD for a server-side application to ensure secure user permissions and data access.",
@@ -117,7 +117,7 @@
           "Developed and maintained technical documentation for Linux and web projects."
         ]
       },
-      "sharif": {
+      "private-sh": {
         "role": "Linux Administrator",
         "bullets": [
           "Developed Python automation scripts for embedded-systems projects in the field of car plate detection.",
@@ -166,8 +166,7 @@
     "items": [
       "Programming in Golang — University of California, Irvine",
       "Programming in Python — Meta",
-      "Version Control — Meta",
-      "ACCA — ArvanCloud"
+      "Version Control — Meta"
     ]
   },
   "contact": {

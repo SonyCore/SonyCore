@@ -71,7 +71,9 @@ export function Experience() {
                           )}
                         </span>
                       </p>
-                      <p className="font-mono text-xs">{job.location}</p>
+                      {job.location && (
+                        <p className="font-mono text-xs">{job.location}</p>
+                      )}
                     </div>
                   </div>
                   {tJob.bullets.length > 0 && (
