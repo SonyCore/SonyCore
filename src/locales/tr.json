@@ -89,7 +89,7 @@
           "WIP..."
         ]
       },
-      "arvancloud": {
+      "private-ar": {
         "role": "Backend Geliştirici",
         "bullets": [
           "VaaS (Video as a Service) platformu için Golang'de çok bitratlı kodlama ve uyarlamalı HLS/DASH yayını destekleyen yüksek verimli bir ffmpeg sarmalayıcısı tasarladım ve bakımını yaptım.",
@@ -100,7 +100,7 @@
           "Darboğazları tespit etmek ve ortalama kurtarma süresini (MTTR) azaltmak için video işleme servisleri genelinde yapılandırılmış loglama ve distributed tracing uyguladım."
         ]
       },
-      "spara": {
+      "private-sp": {
         "role": "Yazılım Mühendisi",
         "bullets": [
           "Ana bilgisayarlardaki ve hizmetlerdeki güvenlik açıklarını tespit eden ve ayrıntılı bilgi gösteren platform panelleri geliştirdim. Performans için Golang'i, yeniden kullanılabilirlik için ReactJS'i kullandım.",
@@ -109,7 +109,7 @@
           "Dağıtımı kolaylaştırmak ve DevOps iş akışlarına entegrasyonu kolaylaştırmak için projeleri otomatize ettim ve konteynerleştirdim."
         ]
       },
-      "konect": {
+      "private-ko": {
         "role": "Backend Geliştirici",
         "bullets": [
           "Güvenli kullanıcı izinleri ve veri erişimi sağlamak için sunucu tarafı bir uygulamada tam CRUD ile rol tabanlı bir erişim kontrol sistemi tasarladım ve uyguladım.",
@@ -118,7 +118,7 @@
           "Linux ve web projeleri için teknik dokümantasyon geliştirdim ve sürdürdüm."
         ]
       },
-      "sharif": {
+      "private-sh": {
         "role": "Linux Yöneticisi",
         "bullets": [
           "Araç plakası tespiti alanındaki gömülü sistem projeleri için Python otomasyon betikleri geliştirdim.",
@@ -167,8 +167,7 @@
     "items": [
       "Golang Programlama — California Üniversitesi, Irvine",
       "Python Programlama — Meta",
-      "Sürüm Kontrolü — Meta",
-      "ACCA — ArvanCloud"
+      "Sürüm Kontrolü — Meta"
     ]
   },
   "contact": {

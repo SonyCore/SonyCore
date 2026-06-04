@@ -3,7 +3,7 @@ export type ExperienceEntry = {
   company: string;
   startDate: string;
   endDate: string | null;
-  location: string;
+  location?: string;
 };
 
 export type ProjectEntry = {
@@ -42,32 +42,28 @@ export const resume = {
       location: "Dubai, UAE · Remote",
     },
     {
-      id: "arvancloud",
-      company: "Private Company · FANAP Infrastructure",
+      id: "private-ar",
+      company: "Private Company",
       startDate: "07/2024",
       endDate: "12/2024",
-      location: "Iran, Tehran",
     },
     {
-      id: "spara",
-      company: "Spara Security Group · FANAP Holding",
+      id: "private-sp",
+      company: "Private Company",
       startDate: "03/2023",
       endDate: "05/2024",
-      location: "Tehran, Iran",
     },
     {
-      id: "konect",
-      company: "Konect Sharif · Sharif University",
+      id: "private-ko",
+      company: "Private Company",
       startDate: "10/2022",
       endDate: "03/2023",
-      location: "Tehran, Iran",
     },
     {
-      id: "sharif",
-      company: "Sharif University",
+      id: "private-sh",
+      company: "Private Company",
       startDate: "10/2021",
       endDate: "09/2022",
-      location: "Tehran, Iran",
     },
   ] satisfies ExperienceEntry[],
   skills: {
