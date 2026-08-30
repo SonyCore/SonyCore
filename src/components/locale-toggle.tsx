@@ -28,7 +28,7 @@ export function LocaleToggle({
         <Button
           variant="outline"
           size="sm"
-          className={cn("h-9 gap-1.5 px-3", className)}
+          className={cn("h-8 gap-1.5 px-2.5", className)}
           aria-label={t.nav.languageLabel}
         >
           <Globe className="h-4 w-4" />

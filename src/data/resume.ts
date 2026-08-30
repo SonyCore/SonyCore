@@ -26,6 +26,8 @@ export const resume = {
   email: "soniafatholahi@proton.me",
   phone: "",
   location: "Türkiye, Ankara",
+  /** Labels the hero's anchor node on the network graph. */
+  coords: { city: "Ankara", lat: 39.9334, lon: 32.8597 },
   scheduleUrl: "https://calendar.app.google/bcvLmj3UJ3N8kvCQ8",
   socials: {
     github: "https://github.com/SonyCore",

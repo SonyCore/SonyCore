@@ -7,15 +7,25 @@ export default {
   theme: {
     container: {
       center: true,
-      padding: "1.5rem",
-      screens: { "2xl": "1280px" },
+      padding: { DEFAULT: "1.25rem", md: "2rem" },
+      screens: { "2xl": "1200px" },
     },
     extend: {
       fontFamily: {
         sans: ["var(--font-sans)"],
         mono: ["var(--font-mono)"],
+        display: ["var(--font-display)"],
       },
       colors: {
+        brand: {
+          DEFAULT: "hsl(var(--brand))",
+          strong: "hsl(var(--brand-strong))",
+          soft: "hsl(var(--brand-soft))",
+        },
+        subtle: "hsl(var(--subtle))",
+        faint: "hsl(var(--faint))",
+        good: "hsl(var(--good))",
+        warn: "hsl(var(--warn))",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

@@ -34,15 +34,15 @@ export function BlogPostPage() {
 
   return (
     <div className="flex min-h-screen flex-col">
-      <header className="sticky top-0 z-40 w-full border-b border-border/40 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-16 items-center justify-between gap-4">
+      <header className="sticky top-0 z-40 w-full border-b border-border bg-background/[0.72] backdrop-blur-xl backdrop-saturate-150">
+        <div className="container flex h-[60px] items-center justify-between gap-4">
           <Link
             to="/"
-            className="flex items-center gap-2 font-semibold tracking-tight"
+            className="flex items-center gap-2.5 text-[15px] font-medium tracking-[-0.01em]"
           >
-            <Avatar className="h-8 w-8 ring-1 ring-border">
+            <Avatar className="h-7 w-7 rounded-md border border-border">
               <AvatarImage src="/avatar.png" alt={resume.name} />
-              <AvatarFallback className="bg-primary font-mono text-xs font-semibold text-primary-foreground">
+              <AvatarFallback className="rounded-md bg-card font-mono text-[10px] text-subtle">
                 {initials}
               </AvatarFallback>
             </Avatar>
@@ -61,37 +61,33 @@ export function BlogPostPage() {
         </div>
       </header>
 
-      <main className="container max-w-3xl flex-1 py-10 md:py-16">
+      <main className="container max-w-3xl flex-1 py-12 md:py-16">
         <Link
           to="/#blog"
-          className="mb-6 inline-flex items-center gap-1.5 font-mono text-xs text-muted-foreground hover:text-foreground sm:hidden"
+          className="mb-6 inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.06em] text-subtle hover:text-foreground sm:hidden"
         >
           <ArrowLeft className="h-3.5 w-3.5 rtl:rotate-180" />
           {t.blog.allPosts}
         </Link>
 
         <article>
-          <header className="mb-8 space-y-4">
-            <h1 className="text-3xl font-bold leading-tight tracking-tight md:text-4xl">
+          <header className="mb-8 space-y-5">
+            <h1 className="text-balance text-[clamp(2rem,4.5vw,3.25rem)] font-medium leading-[1.05] tracking-[-0.03em]">
               {post.title}
             </h1>
-            <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-muted-foreground">
-              <span className="inline-flex items-center gap-1.5 font-mono">
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-[11px] uppercase tracking-[0.06em] text-subtle">
+              <span className="inline-flex items-center gap-1.5">
                 <Calendar className="h-3.5 w-3.5" />
                 <span dir="ltr">{post.date}</span>
               </span>
-              <span className="inline-flex items-center gap-1.5 font-mono">
+              <span className="inline-flex items-center gap-1.5">
                 <Clock className="h-3.5 w-3.5" />
                 {post.readingMinutes} {t.blog.minRead}
               </span>
               {post.tags.length > 0 && (
                 <div className="flex flex-wrap gap-1">
                   {post.tags.map((tag) => (
-                    <Badge
-                      key={tag}
-                      variant="secondary"
-                      className="font-mono text-[10px]"
-                    >
+                    <Badge key={tag} variant="secondary">
                       {tag}
                     </Badge>
                   ))}

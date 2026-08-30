@@ -1,36 +1,42 @@
 import { Section } from "@/components/section";
-import { Card, CardContent } from "@/components/ui/card";
 import { resume } from "@/data/resume";
 import { useLocale } from "@/hooks/use-locale";
 
 export function About() {
   const { t } = useLocale();
   return (
-    <Section id="about" eyebrow={t.section.profile} title={t.section.aboutTitle}>
-      <Card className="mx-auto max-w-3xl">
-        <CardContent className="p-8">
-          <p className="text-lg leading-relaxed text-muted-foreground">
-            {t.resume.about}
-          </p>
-        </CardContent>
-      </Card>
+    <Section
+      id="about"
+      eyebrow={t.section.profile}
+      title={t.section.aboutTitle}
+      aside={t.resume.tagline}
+    >
+      <p className="max-w-3xl text-pretty text-lg leading-relaxed text-muted-foreground">
+        {t.resume.about}
+      </p>
 
-      <div className="mx-auto mt-8 grid max-w-3xl gap-4 sm:grid-cols-2">
+      {/* Soft skills as a bordered grid rather than cards — the rules carry
+          the structure, matching the skills and credentials sections. */}
+      {/* The dl carries its own bottom rule so a partly-filled last row still
+          closes with a full-width line. */}
+      <dl className="mt-12 grid border-y border-border sm:grid-cols-2 lg:grid-cols-3">
         {resume.softSkills.map((key) => {
           const s = t.softSkills[key as keyof typeof t.softSkills];
           return (
-            <Card
+            <div
               key={key}
-              className="transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md"
+              className="border-b border-border py-5 sm:pe-8 lg:pe-10"
             >
-              <CardContent className="p-5">
-                <p className="font-semibold">{s.name}</p>
-                <p className="mt-1 text-sm text-muted-foreground">{s.detail}</p>
-              </CardContent>
-            </Card>
+              <dt className="font-mono text-[11px] uppercase tracking-[0.06em] text-brand">
+                {s.name}
+              </dt>
+              <dd className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                {s.detail}
+              </dd>
+            </div>
           );
         })}
-      </div>
+      </dl>
     </Section>
   );
 }

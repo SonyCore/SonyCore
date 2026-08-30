@@ -5,7 +5,12 @@ import { cn } from "@/lib/utils";
 interface SectionProps {
   id: string;
   title?: string;
+  /** Trailing half of the title, rendered muted — "Selected _work_". */
+  titleMuted?: string;
+  /** Mono uppercase label above the title. */
   eyebrow?: string;
+  /** Short right-hand paragraph, sitting opposite the title. */
+  aside?: ReactNode;
   className?: string;
   containerClassName?: string;
   children: ReactNode;
@@ -14,27 +19,35 @@ interface SectionProps {
 export function Section({
   id,
   title,
+  titleMuted,
   eyebrow,
+  aside,
   className,
   containerClassName,
   children,
 }: SectionProps) {
   return (
-    <section id={id} className={cn("scroll-mt-20 py-16 md:py-24", className)}>
+    <section
+      id={id}
+      className={cn("scroll-mt-20 border-b border-border py-20 md:py-24", className)}
+    >
       <div className={cn("container", containerClassName)}>
         {(title || eyebrow) && (
-          <Reveal className="mb-10 flex flex-col items-center text-center">
-            {eyebrow && (
-              <span className="font-mono text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
-                {eyebrow}
-              </span>
+          <Reveal className="mb-12 flex flex-col justify-between gap-6 md:mb-14 md:flex-row md:items-end md:gap-10">
+            <div>
+              {eyebrow && <span className="mono-label mb-3.5">{eyebrow}</span>}
+              {title && (
+                <h2 className="max-w-2xl text-[clamp(1.875rem,3.2vw,2.625rem)] font-medium leading-[1.08] tracking-[-0.028em] text-balance">
+                  {title}
+                  {titleMuted && <span className="text-subtle"> {titleMuted}</span>}
+                </h2>
+              )}
+            </div>
+            {aside && (
+              <p className="max-w-[340px] text-sm leading-relaxed text-muted-foreground">
+                {aside}
+              </p>
             )}
-            {title && (
-              <h2 className="mt-2 text-3xl font-bold tracking-tight md:text-4xl">
-                {title}
-              </h2>
-            )}
-            <div className="mt-4 h-1 w-16 rounded-full bg-gradient-to-r from-primary/30 via-primary to-primary/30" />
           </Reveal>
         )}
         <Reveal delay={120}>{children}</Reveal>
