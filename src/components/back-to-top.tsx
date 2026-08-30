@@ -23,8 +23,9 @@ export function BackToTop() {
       size="icon"
       aria-label={t.misc.backToTop}
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      variant="outline"
       className={cn(
-        "fixed bottom-6 end-6 z-30 h-11 w-11 rounded-full shadow-lg transition-all duration-300",
+        "fixed bottom-5 end-5 z-30 h-10 w-10 border-input bg-popover/90 backdrop-blur transition-all duration-300",
         show
           ? "translate-y-0 opacity-100"
           : "pointer-events-none translate-y-4 opacity-0",

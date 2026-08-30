@@ -25,26 +25,39 @@ export function Contact() {
   }
 
   return (
-    <Section id="contact" eyebrow={t.section.reachOut} title={t.section.contactTitle}>
-      <Card className="mx-auto max-w-2xl">
-        <CardContent className="p-6 md:p-8">
-          <p className="text-sm text-muted-foreground">
-            {t.contact.blurb}
-            <a
-              className="font-mono font-medium text-foreground underline underline-offset-4"
-              href={`mailto:${resume.email}`}
-              dir="ltr"
-            >
-              {resume.email}
-            </a>
-            {t.contact.blurbSuffix}
-          </p>
-          <form onSubmit={handleSubmit} className="mt-6 grid gap-4">
+    <Section
+      id="contact"
+      eyebrow={t.section.reachOut}
+      title={t.section.contactTitle}
+      aside={
+        <>
+          {t.contact.blurb}
+          <a
+            className="font-mono text-brand underline-offset-4 hover:underline"
+            href={`mailto:${resume.email}`}
+            dir="ltr"
+          >
+            {resume.email}
+          </a>
+          {t.contact.blurbSuffix}
+        </>
+      }
+    >
+      <Card className="max-w-2xl">
+        <div className="panel-head">
+          <span className="inline-flex items-center gap-2">
+            <span className="live-dot" />
+            <span className="text-muted-foreground">message</span>
+          </span>
+          <span className="text-faint">mailto · direct</span>
+        </div>
+        <CardContent className="p-5 md:p-6">
+          <form onSubmit={handleSubmit} className="grid gap-4">
             <div className="grid gap-4 sm:grid-cols-2">
               <div>
                 <label
                   htmlFor="name"
-                  className="mb-1.5 block text-sm font-medium"
+                  className="mb-2 block font-mono text-[11px] uppercase tracking-[0.06em] text-subtle"
                 >
                   {t.contact.name}
                 </label>
@@ -59,7 +72,7 @@ export function Contact() {
               <div>
                 <label
                   htmlFor="email"
-                  className="mb-1.5 block text-sm font-medium"
+                  className="mb-2 block font-mono text-[11px] uppercase tracking-[0.06em] text-subtle"
                 >
                   {t.contact.email}
                 </label>
@@ -77,7 +90,7 @@ export function Contact() {
             <div>
               <label
                 htmlFor="message"
-                className="mb-1.5 block text-sm font-medium"
+                className="mb-2 block font-mono text-[11px] uppercase tracking-[0.06em] text-subtle"
               >
                 {t.contact.message}
               </label>
@@ -90,11 +103,11 @@ export function Contact() {
                 placeholder={t.contact.placeholderMessage}
               />
             </div>
-            <div className="flex flex-wrap items-center gap-3">
-              <Button type="submit" size="lg">
+            <div className="mt-2 flex flex-wrap items-center gap-3">
+              <Button type="submit">
                 <Send /> {t.contact.sendViaMail}
               </Button>
-              <Button asChild size="lg" variant="outline">
+              <Button asChild variant="outline">
                 <a href={`mailto:${resume.email}`}>
                   <Mail /> {t.contact.openMailto}
                 </a>

@@ -62,8 +62,8 @@ export function NavBar() {
   }
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-border/40 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 items-center justify-between gap-4">
+    <header className="sticky top-0 z-40 w-full border-b border-border bg-background/[0.72] backdrop-blur-xl backdrop-saturate-150">
+      <div className="container flex h-[60px] items-center justify-between gap-4">
         <Link
           to="/"
           onClick={(e) => {
@@ -72,18 +72,18 @@ export function NavBar() {
               window.scrollTo({ top: 0, behavior: "smooth" });
             }
           }}
-          className="flex items-center gap-2 font-semibold tracking-tight"
+          className="flex items-center gap-2.5 text-[15px] font-medium tracking-[-0.01em]"
         >
-          <Avatar className="h-8 w-8 ring-1 ring-border">
+          <Avatar className="h-7 w-7 rounded-md border border-border">
             <AvatarImage src="/avatar.png" alt={resume.name} />
-            <AvatarFallback className="bg-primary font-mono text-xs font-semibold text-primary-foreground">
+            <AvatarFallback className="rounded-md bg-card font-mono text-[10px] text-subtle">
               {initials}
             </AvatarFallback>
           </Avatar>
           <span className="hidden sm:inline">{resume.name}</span>
         </Link>
 
-        <nav className="hidden items-center gap-0.5 rounded-full border border-border/60 bg-muted/60 px-1.5 py-1.5 lg:flex">
+        <nav className="hidden items-center gap-7 text-[13px] lg:flex">
           {navItems.map((item) => (
             <a
               key={item.id}
@@ -94,10 +94,10 @@ export function NavBar() {
               }}
               aria-current={active === item.id ? "page" : undefined}
               className={cn(
-                "rounded-full px-3.5 py-1 text-sm font-medium transition-all duration-200",
+                "relative py-5 transition-colors duration-150",
                 active === item.id
-                  ? "bg-background text-foreground shadow-md ring-1 ring-border/40"
-                  : "text-muted-foreground hover:text-foreground hover:bg-background/40",
+                  ? "text-foreground after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-brand"
+                  : "text-muted-foreground hover:text-foreground",
               )}
             >
               {item.label}
@@ -121,10 +121,10 @@ export function NavBar() {
             </SheetTrigger>
             <SheetContent side={isRtl ? "left" : "right"} className="w-72">
               <SheetHeader>
-                <SheetTitle>{resume.name}</SheetTitle>
+                <SheetTitle className="mono-label">{resume.name}</SheetTitle>
               </SheetHeader>
-              <nav className="mt-6 flex flex-col gap-1">
-                {navItems.map((item) => (
+              <nav className="mt-6 flex flex-col">
+                {navItems.map((item, i) => (
                   <a
                     key={item.id}
                     href={isHome ? `#${item.id}` : `/#${item.id}`}
@@ -134,12 +134,15 @@ export function NavBar() {
                       window.setTimeout(() => goToSection(item.id), 100);
                     }}
                     className={cn(
-                      "rounded-md px-3 py-2 text-sm font-medium transition-colors",
+                      "flex items-baseline gap-3 border-b border-border py-3 text-sm transition-colors",
                       active === item.id
-                        ? "bg-accent text-accent-foreground"
-                        : "text-muted-foreground hover:bg-accent hover:text-accent-foreground",
+                        ? "text-foreground"
+                        : "text-muted-foreground hover:text-foreground",
                     )}
                   >
+                    <span className="font-mono text-[10px] text-faint">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
                     {item.label}
                   </a>
                 ))}

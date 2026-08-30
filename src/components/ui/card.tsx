@@ -6,7 +6,7 @@ const Card = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElemen
     <div
       ref={ref}
       className={cn(
-        "rounded-lg border bg-card text-card-foreground shadow-sm",
+        "overflow-hidden rounded-lg border border-border bg-card text-card-foreground",
         className,
       )}
       {...props}
@@ -26,11 +26,25 @@ const CardHeader = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDiv
 );
 CardHeader.displayName = "CardHeader";
 
+/**
+ * Mono strip across the top of a panel — a filename/status line rather than a
+ * heading. Pairs with CardContent below it.
+ */
+const CardBar = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => (
+    <div ref={ref} className={cn("panel-head", className)} {...props} />
+  ),
+);
+CardBar.displayName = "CardBar";
+
 const CardTitle = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   ({ className, ...props }, ref) => (
     <div
       ref={ref}
-      className={cn("text-lg font-semibold leading-none tracking-tight", className)}
+      className={cn(
+        "text-base font-medium leading-snug tracking-[-0.01em]",
+        className,
+      )}
       {...props}
     />
   ),
@@ -67,4 +81,12 @@ const CardFooter = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDiv
 );
 CardFooter.displayName = "CardFooter";
 
-export { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter };
+export {
+  Card,
+  CardBar,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  CardFooter,
+};

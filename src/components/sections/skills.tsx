@@ -1,4 +1,3 @@
-import { ArrowUpRight } from "lucide-react";
 import { Section } from "@/components/section";
 import { resume, type Skill } from "@/data/resume";
 import { useLocale } from "@/hooks/use-locale";
@@ -33,49 +32,44 @@ function SkillChip({ skill }: { skill: Skill }) {
       target="_blank"
       rel="noreferrer noopener"
       aria-label={`${skill.name} (opens in new tab)`}
-      className="group inline-flex items-center gap-1.5 rounded-md border bg-secondary/60 px-2.5 py-1 font-mono text-xs font-semibold text-secondary-foreground transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/50 hover:bg-primary hover:text-primary-foreground hover:shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+      className="inline-flex items-center gap-2 rounded border border-border bg-card px-2.5 py-1.5 font-mono text-xs text-muted-foreground transition-colors duration-150 hover:border-brand/50 hover:bg-brand/[0.07] hover:text-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-brand"
     >
       <SkillIcon name={skill.icon} />
       <span>{skill.name}</span>
-      <ArrowUpRight className="h-3 w-3 opacity-0 transition-opacity group-hover:opacity-70" />
     </a>
-  );
-}
-
-function CategoryRow({
-  items,
-  label,
-}: {
-  items: Skill[];
-  label: string;
-}) {
-  return (
-    <div className="flex flex-col gap-3 border-b border-border/50 pb-5 last:border-0 last:pb-0 sm:flex-row sm:items-start sm:gap-6">
-      <div className="w-full shrink-0 sm:w-36 md:w-44">
-        <span className="inline-flex items-center rounded-md border border-border/60 bg-muted/60 px-2.5 py-1 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-          {label}
-        </span>
-      </div>
-      <div className="flex flex-wrap gap-2">
-        {items.map((skill) => (
-          <SkillChip key={skill.name} skill={skill} />
-        ))}
-      </div>
-    </div>
   );
 }
 
 export function Skills() {
   const { t } = useLocale();
+  const categories = Object.entries(resume.skills);
+
   return (
-    <Section id="skills" eyebrow={t.section.toolbox} title={t.section.skillsTitle}>
-      <div className="mx-auto max-w-4xl space-y-5">
-        {Object.entries(resume.skills).map(([category, items]) => (
-          <CategoryRow
+    <Section
+      id="skills"
+      eyebrow={t.section.toolbox}
+      title={t.section.skillsTitle}
+    >
+      <div className="border-t border-border">
+        {categories.map(([category, items], i) => (
+          <div
             key={category}
-            items={items}
-            label={t.skillCategories[category as SkillCategoryKey] ?? category}
-          />
+            className="grid gap-4 border-b border-border py-6 sm:grid-cols-[10rem_1fr] sm:gap-8 md:grid-cols-[13rem_1fr]"
+          >
+            <div className="flex items-baseline gap-3">
+              <span className="font-mono text-[10px] text-faint">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-subtle">
+                {t.skillCategories[category as SkillCategoryKey] ?? category}
+              </span>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {items.map((skill) => (
+                <SkillChip key={skill.name} skill={skill} />
+              ))}
+            </div>
+          </div>
         ))}
       </div>
     </Section>
