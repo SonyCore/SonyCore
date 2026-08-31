@@ -5,7 +5,7 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Sonia Fatholahi — Senior Software Engineer specializing in Backend & DevOps with Golang, Python, Linux, and Docker." />
+    <meta name="description" content="Sonia Fatholahi, Senior Software Engineer specializing in Backend & DevOps with Golang, Python, Linux, and Docker." />
     <meta name="theme-color" content="#08090b" />
 
     <meta property="og:type" content="website" />
@@ -20,7 +20,7 @@
     <!--
       Must stay ahead of every stylesheet link. A pending stylesheet blocks
       execution of any later script, and a blocked inline script blocks the
-      HTML parser — which would stall the boot screen below out of existence.
+      HTML parser - which would stall the boot screen below out of existence.
     -->
     <script>
       (function () {
@@ -69,6 +69,46 @@
       />
     </noscript>
     <title>Sonia Fatholahi · Senior Software Engineer · Backend & DevOps</title>
+
+    <!--
+      schema.org Person. Parsers that read structured data (search engines,
+      recruiter tooling, link unfurlers) get the identity, skills and profile
+      links without executing the bundle.
+    -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Sonia Fatholahi",
+        "jobTitle": "Senior Software Engineer",
+        "description": "Senior Software Engineer working on backend systems and infrastructure: distributed services in Go and Python, event-driven pipelines, observability and on-call practice.",
+        "url": "https://www.sonycore.dev/",
+        "email": "mailto:soniafatholahi@proton.me",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Ankara",
+          "addressCountry": "TR"
+        },
+        "sameAs": [
+          "https://github.com/SonyCore",
+          "https://www.linkedin.com/in/soniafatholahi",
+          "https://t.me/SoniaCircuit",
+          "https://youtube.com/@SoniaCircuit"
+        ],
+        "knowsLanguage": ["fa", "tr", "en"],
+        "knowsAbout": [
+          "Backend Development", "Distributed Systems", "DevSecOps",
+          "Site Reliability Engineering", "Observability", "Incident Response",
+          "Go", "Golang", "Python", "JavaScript", "Bash",
+          "Linux", "Docker", "Kubernetes", "Terraform", "Ansible",
+          "GitLab CI/CD", "CI/CD", "Prometheus", "Grafana", "ELK Stack",
+          "Nexus", "RabbitMQ", "Apache Kafka", "Microservices",
+          "REST APIs", "PostgreSQL", "MySQL", "MongoDB", "ClickHouse",
+          "FastAPI", "Django", "Flask", "Gin", "Echo", "Fiber",
+          "HashiCorp Vault", "Trivy", "Snyk", "Infrastructure as Code"
+        ]
+      }
+    </script>
 
     <!--
       Critical CSS. This runs before the Tailwind bundle arrives, so it has to
@@ -239,7 +279,38 @@
       }, 15000);
     </script>
 
-    <div id="root"></div>
+    <!--
+      Static fallback for crawlers, no-JS agents and anything that doesn't
+      execute the bundle - without it they only see the boot screen's
+      "Loading". React clears these children when it mounts into #root, and
+      the boot overlay covers them until it does, so this is never seen by a
+      normal visitor. Keep in sync with the hero copy in src/locales/en.json.
+    -->
+    <div id="root">
+      <article>
+        <h1>Sonia Fatholahi</h1>
+        <p><strong>Senior Software Engineer</strong>. Backend · Distributed Systems · DevSecOps</p>
+        <p>
+          I design and operate backend systems and the infrastructure they run
+          on: distributed services in Go and Python, event-driven pipelines,
+          and the observability and on-call practice that keeps them reliable
+          in production.
+        </p>
+        <p>Ankara, Türkiye · <a href="mailto:soniafatholahi@proton.me">soniafatholahi@proton.me</a></p>
+        <h2>Core skills</h2>
+        <p>
+          Go (Golang), Python, JavaScript, Bash. Linux, Docker, Kubernetes,
+          Terraform, Ansible, GitLab CI/CD. Prometheus, Grafana, ELK Stack,
+          Nexus. RabbitMQ, Apache Kafka, microservices, REST APIs.
+          PostgreSQL, MySQL, MongoDB, ClickHouse. FastAPI, Django, Flask,
+          Gin, Echo, Fiber. HashiCorp Vault, Trivy, Snyk.
+        </p>
+        <ul>
+          <li><a href="https://github.com/SonyCore" rel="me">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/soniafatholahi" rel="me">LinkedIn</a></li>
+        </ul>
+      </article>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

@@ -17,7 +17,7 @@ export function Contact() {
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const subject = `Portfolio contact from ${name || "someone"}`;
-    const body = `${message}\n\n— ${name}${email ? ` <${email}>` : ""}`;
+    const body = `${message}\n\n- ${name}${email ? ` <${email}>` : ""}`;
     const href = `mailto:${resume.email}?subject=${encodeURIComponent(
       subject,
     )}&body=${encodeURIComponent(body)}`;

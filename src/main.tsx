@@ -17,7 +17,7 @@ function dismissBootScreen() {
   boot.classList.add("boot-done");
   boot.addEventListener("transitionend", () => boot.remove(), { once: true });
   // transitionend doesn't fire in a background tab, and reduced-motion
-  // collapses the duration to nothing — either way, don't leak the node.
+  // collapses the duration to nothing - either way, don't leak the node.
   window.setTimeout(() => boot.remove(), 600);
 }
 

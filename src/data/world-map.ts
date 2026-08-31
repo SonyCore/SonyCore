@@ -4,7 +4,7 @@
 //
 // Rings are split at the antimeridian (a wrapping ring would otherwise draw a
 // seam straight across the map), clipped to the window the hero can actually
-// show, and simplified to 0.03° — well under a pixel at maximum zoom.
+// show, and simplified to 0.03° - well under a pixel at maximum zoom.
 
 /** Longitude/latitude to the map's viewBox units. */
 export function projectToMap(lon: number, lat: number) {

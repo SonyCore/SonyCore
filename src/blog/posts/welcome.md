@@ -16,7 +16,7 @@ figured it was about time to write some of those notes down.
 
 ## What you'll find here
 
-- Field notes from building backend systems — the kinds of problems that
+- Field notes from building backend systems: the kinds of problems that
   don't fit a tutorial.
 - Short pieces on **DevOps**: containers, CI/CD pipelines, Linux
   internals, and the occasional networking deep-dive.
@@ -26,7 +26,7 @@ figured it was about time to write some of those notes down.
 
 ## Quick code sample
 
-Here's a tiny Go snippet — the kind of thing I'll be writing about:
+Here's a tiny Go snippet, the kind of thing I'll be writing about:
 
 ```go
 package main
@@ -41,4 +41,4 @@ func main() {
 > Posts will start showing up here regularly. If there's something specific
 > you'd like me to write about, drop me a line via the **Contact** section.
 
-— Sonia
+Sonia

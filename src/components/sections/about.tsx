@@ -15,7 +15,7 @@ export function About() {
         {t.resume.about}
       </p>
 
-      {/* Soft skills as a bordered grid rather than cards — the rules carry
+      {/* Soft skills as a bordered grid rather than cards - the rules carry
           the structure, matching the skills and credentials sections. */}
       {/* The dl carries its own bottom rule so a partly-filled last row still
           closes with a full-width line. */}
