@@ -37,10 +37,10 @@
     "contactTitle": "İletişim"
   },
   "resume": {
-    "title": "Yazılım Mühendisi Kıdemli",
-    "specialty": "Backend ve DevSecOps",
+    "title": "Kıdemli Yazılım Mühendisi",
+    "specialty": "Backend · Dağıtık Sistemler · DevSecOps",
     "tagline": "Golang • Python • Linux • Açık kaynak",
-    "about": "Kendi kendine yetişmiş bir yazılım mühendisiyim. Yazılım geliştirmeye tutkuyla bağlıyım ve Golang ile Python gibi dillerde uzmanlığım var. Görevleri otomatikleştirme, araçlar geliştirme ve platformlar (örneğin Golang ile web uygulamaları) inşa etme konusunda yetenekliyim ve açık kaynak projelerine aktif olarak katkıda bulunuyorum."
+    "about": "Backend sistemlerini ve üzerinde çalıştıkları altyapıyı tasarlıyor ve işletiyorum: Go ve Python ile dağıtık servisler, olay tabanlı veri hatları ve bunları üretimde güvenilir tutan gözlemlenebilirlik ve nöbet pratiği."
   },
   "softSkills": {
     "Communication": {
@@ -87,7 +87,8 @@
           "Platform için backend sistemleri ve geliştirici araçları üretiyorum.",
           "Dağıtık bir mühendislik ekibinin parçası olarak uzaktan çalışıyorum.",
           "WIP..."
-        ]
+        ],
+        "metrics": []
       },
       "private-ar": {
         "role": "Backend Geliştirici",
@@ -98,6 +99,12 @@
           "Kodlama pipeline SLI'larını izlemek, SLO'ları tanımlamak ve verim/gecikme düşüşlerinde uyarı vermek için Prometheus ve Grafana ile observability yığını tasarladım ve sürdürdüm.",
           "VaaS platformu için nöbet rotasyonlarına katıldım ve olay müdahalesine öncülük ettim; pipeline arızalarını tespit ederek servis kullanılabilirliğini yeniden sağladım.",
           "Darboğazları tespit etmek ve ortalama kurtarma süresini (MTTR) azaltmak için video işleme servisleri genelinde yapılandırılmış loglama ve distributed tracing uyguladım."
+        ],
+        "metrics": [
+          "BİNLERCE EŞZAMANLI İŞ",
+          "MONOLİTTEN MİKROSERVİSE",
+          "SLI/SLO + ALARM",
+          "NÖBET / OLAY MÜDAHALESİ"
         ]
       },
       "private-sp": {
@@ -107,6 +114,11 @@
           "Hostlarda sistematik arama yapmak, hizmetleri tanımlamak ve CVE'leriyle birlikte güvenlik açıklarını bulmak için Golang ve Docker konteynerleştirme SDK'sı kullanarak gezgin benzeri bir ajan ve C2 geliştirdim.",
           "Performanslı host taraması, hizmet tanımlama ve açık port tespiti için Golang ile özel bir Nmap kütüphanesini entegre ederek ajan yeteneklerini geliştirdim.",
           "Dağıtımı kolaylaştırmak ve DevOps iş akışlarına entegrasyonu kolaylaştırmak için projeleri otomatize ettim ve konteynerleştirdim."
+        ],
+        "metrics": [
+          "ZAFİYET VE CVE KEŞFİ",
+          "ÖZEL NMAP KÜTÜPHANESİ",
+          "KONTEYNERLİ DAĞITIM"
         ]
       },
       "private-ko": {
@@ -116,6 +128,11 @@
           "Bir web uygulaması için RESTful bir API uyguladım; uç noktaları tasarladım ve sorunsuz entegrasyon için ön uç ekibiyle işbirliği yaptım.",
           "Pypylon kütüphanesini kullanarak bir makine görüşü uygulaması için Basler kamera sıcaklığının gerçek zamanlı izlenmesi ve kontrolünü sağlayan özel bir API geliştirdim.",
           "Linux ve web projeleri için teknik dokümantasyon geliştirdim ve sürdürdüm."
+        ],
+        "metrics": [
+          "RBAC + TAM CRUD",
+          "REST API TASARIMI",
+          "GERÇEK ZAMANLI MAKİNE GÖRÜŞÜ"
         ]
       },
       "private-sh": {
@@ -127,6 +144,11 @@
           "NFS ağındaki hassas verileri korumak için güvenlik duvarı kuralları ve izin yönetimi gibi güvenlik önlemleri uyguladım.",
           "Birden çok sunucuda Linux OS imajı dağıtımını eşzamanlı olarak otomatikleştirmek için Bash betikleri yazdım.",
           "Ubuntu, CentOS, LFS ve Debian dahil Linux dağıtımlarıyla çalıştım."
+        ],
+        "metrics": [
+          "ÇOK LOKASYONLU NFS",
+          "FİLO İMAJ DAĞITIMI",
+          "GÜVENLİK DUVARI + YETKİLER"
         ]
       }
     }
@@ -141,10 +163,10 @@
         "description": "XRay JSON yapılandırmaları üretir ve sunucu tarafında XRay dağıtımını otomatikleştirir."
       },
       "cfscanner": {
-        "description": "Cloudflare Tarayıcı — bu projenin Golang bölümünü yazdım."
+        "description": "Cloudflare Tarayıcı. Bu projenin Golang bölümünü yazdım."
       },
       "gfwknock": {
-        "description": "Paket parçalama yöntemiyle GFW tespitini atlama — Golang ile yazılmış bir PoC."
+        "description": "Paket parçalama yöntemiyle GFW tespitini atlama. Golang ile yazılmış bir PoC."
       },
       "rabbitmq-perobject-dashboard": {
         "description": "RabbitMQ Per Object Dashboard, kuyruk başına / değişim başına RabbitMQ metrikleri ile birikmiş işleri, takılı tüketicileri ve yönlendirme sorunlarını hata ayıklamak için. rabbitmq_prometheus eklentisinin /metrics/per-object uç noktası tarafından desteklenir."
@@ -165,13 +187,13 @@
     "heading": "Sertifikalar",
     "languagesHeading": "Diller",
     "items": [
-      "Golang Programlama — California Üniversitesi, Irvine",
-      "Python Programlama — Meta",
-      "Sürüm Kontrolü — Meta"
+      "Golang Programlama, California Üniversitesi, Irvine",
+      "Python Programlama, Meta",
+      "Sürüm Kontrolü, Meta"
     ]
   },
   "contact": {
-    "blurb": "Bir fırsatınız mı, sorunuz mu var, yoksa sadece selam mı vermek istiyorsunuz? Bana bir mesaj gönderin — e-posta istemciniz şu adrese hazır olarak açılır: ",
+    "blurb": "Bir fırsatınız mı, sorunuz mu var, yoksa sadece selam mı vermek istiyorsunuz? Bana bir mesaj gönderin. E-posta istemciniz şu adrese hazır olarak açılır: ",
     "blurbSuffix": ".",
     "name": "Ad",
     "email": "E-posta",
@@ -181,11 +203,16 @@
     "sendViaMail": "E-posta ile gönder",
     "openMailto": "Doğrudan mailto'yu aç"
   },
-  "footer": { "builtWith": "React, Vite ve shadcn/ui ile yapıldı." },
-  "misc": { "backToTop": "Yukarı dön", "loading": "Yükleniyor" },
+  "footer": {
+    "builtWith": "React, Vite ve shadcn/ui ile yapıldı."
+  },
+  "misc": {
+    "backToTop": "Yukarı dön",
+    "loading": "Yükleniyor"
+  },
   "blog": {
     "readMore": "Devamını oku",
-    "noPosts": "Henüz yazı yok — yakında tekrar bakın.",
+    "noPosts": "Henüz yazı yok. Yakında tekrar bakın.",
     "minRead": "dk okuma",
     "close": "Kapat",
     "publishedOn": "Yayınlandı",

@@ -11,7 +11,7 @@ export function Experience() {
       eyebrow={t.section.career}
       title={t.section.experienceTitle}
     >
-      {/* A rule down the left edge with a node per role — the same visual
+      {/* A rule down the left edge with a node per role - the same visual
           grammar as the hero graph, flattened to one axis. */}
       <ol className="border-s border-border">
         {resume.experience.map((job) => {
@@ -54,6 +54,21 @@ export function Experience() {
                       </span>
                     )}
                   </div>
+
+                  {/* Measured outcomes, if the role has them - these are what
+                      a recruiter scans for before reading any prose. */}
+                  {tJob.metrics.length > 0 && (
+                    <ul className="mt-4 flex flex-wrap gap-2">
+                      {tJob.metrics.map((m: string, i: number) => (
+                        <li
+                          key={i}
+                          className="rounded border border-brand/30 bg-brand/[0.07] px-2 py-1 font-mono text-[11px] tracking-[0.04em] text-brand"
+                        >
+                          {m}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
 
                   {tJob.bullets.length > 0 && (
                     <ul className="mt-4 space-y-2 text-sm leading-relaxed text-muted-foreground">

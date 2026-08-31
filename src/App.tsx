@@ -9,6 +9,11 @@ const BlogPostPage = lazy(() =>
   import("@/pages/blog-post").then((m) => ({ default: m.BlogPostPage })),
 );
 
+// Split out: the resume view is only reached deliberately.
+const ResumePage = lazy(() =>
+  import("@/pages/resume").then((m) => ({ default: m.ResumePage })),
+);
+
 export default function App() {
   return (
     <BrowserRouter>
@@ -20,6 +25,14 @@ export default function App() {
             element={
               <Suspense fallback={<Loading fullScreen />}>
                 <BlogPostPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/resume"
+            element={
+              <Suspense fallback={<Loading fullScreen />}>
+                <ResumePage />
               </Suspense>
             }
           />

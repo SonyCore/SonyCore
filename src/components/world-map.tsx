@@ -10,7 +10,7 @@ import type { Point } from "@/hooks/use-element-center";
 import { cn } from "@/lib/utils";
 
 /**
- * Semi-transparent world map behind the hero — coastlines and political
+ * Semi-transparent world map behind the hero - coastlines and political
  * borders, drawn as hairlines.
  *
  * The map is scaled and offset so that (`lon`, `lat`) lands exactly on `at`,

@@ -28,7 +28,7 @@ export function HomePage() {
   }, [location.hash]);
 
   // Prefetch the blog-post chunk during browser idle so that clicking a post
-  // doesn't pay the network round-trip — the chunk is already cached by then.
+  // doesn't pay the network round-trip - the chunk is already cached by then.
   useEffect(() => {
     const win = window as Window & {
       requestIdleCallback?: (cb: () => void) => number;
@@ -49,12 +49,14 @@ export function HomePage() {
     <>
       <NavBar />
       <main>
+        {/* Proof first: what she has shipped and operated leads, the personal
+            framing follows it rather than gating it. */}
         <Hero />
-        <About />
         <Experience />
-        <Skills />
         <Projects />
+        <Skills />
         <GitHubSection />
+        <About />
         <Blog />
         <Certificates />
         <Contact />

@@ -38,9 +38,9 @@
   },
   "resume": {
     "title": "Senior Software Engineer",
-    "specialty": "Backend & DevSecOps",
+    "specialty": "Backend · Distributed Systems · DevSecOps",
     "tagline": "Golang • Python • Linux • Open-source",
-    "about": "I'm a self-taught senior software engineer passionate about software development with expertise in languages such as Golang and Python. Skilled in automating tasks, crafting tools and developing platforms (e.g., web applications using Golang), and active participation in open-source projects."
+    "about": "I design and operate backend systems and the infrastructure they run on: distributed services in Go and Python, event-driven pipelines, and the observability and on-call practice that keeps them reliable in production."
   },
   "softSkills": {
     "Communication": {
@@ -86,7 +86,8 @@
         "bullets": [
           "Building backend systems and developer tooling for the platform.",
           "WIP..."
-        ]
+        ],
+        "metrics": []
       },
       "private-ar": {
         "role": "Backend Developer",
@@ -97,6 +98,12 @@
           "Designed and maintained an observability stack with Prometheus and Grafana to track encoding pipeline SLIs, define SLOs, and alert on throughput and latency degradations.",
           "Participated in on-call rotations and led incident response for the VaaS platform, diagnosing pipeline failures and restoring service availability.",
           "Implemented structured logging and distributed tracing across video processing services to detect bottlenecks and reduce mean time to recovery (MTTR)."
+        ],
+        "metrics": [
+          "1000s CONCURRENT JOBS",
+          "MONOLITH TO MICROSERVICES",
+          "SLI/SLO + ALERTING",
+          "ON-CALL / INCIDENT LEAD"
         ]
       },
       "private-sp": {
@@ -106,6 +113,11 @@
           "Developed a crawler-like agent & C2 using Golang and the Docker containerization SDK to systematically search through hosts, identify services, and pinpoint vulnerabilities along with their CVEs.",
           "Enhanced the agent's capabilities by integrating a custom Nmap library using Golang for performant host scanning, service identification, and detection of open ports.",
           "Automated and containerized projects to streamline deployment and ease integration into DevOps workflows."
+        ],
+        "metrics": [
+          "CVE DISCOVERY AGENT",
+          "CUSTOM NMAP LIBRARY",
+          "CONTAINERIZED DELIVERY"
         ]
       },
       "private-ko": {
@@ -115,6 +127,11 @@
           "Implemented a RESTful API for a web application; designed endpoints and collaborated with the front-end team for seamless integration.",
           "Developed a custom API for a machine vision application using the Pypylon library, enabling real-time monitoring and control of Basler camera temperature.",
           "Developed and maintained technical documentation for Linux and web projects."
+        ],
+        "metrics": [
+          "RBAC + FULL CRUD",
+          "REST API DESIGN",
+          "REAL-TIME MACHINE VISION"
         ]
       },
       "private-sh": {
@@ -126,6 +143,11 @@
           "Implemented security measures such as firewall rules and permissions management to protect sensitive data on the NFS network.",
           "Wrote Bash scripts to automate Linux OS image deployment across multiple servers simultaneously.",
           "Worked with Linux distros including Ubuntu, CentOS, LFS, and Debian."
+        ],
+        "metrics": [
+          "MULTI-SITE NFS",
+          "FLEET IMAGE DEPLOYMENT",
+          "FIREWALL + PERMISSIONS"
         ]
       }
     }
@@ -140,7 +162,7 @@
         "description": "Generates XRay JSON configs and automates XRay deployment on the server side."
       },
       "cfscanner": {
-        "description": "Cloud Flare Scanner — wrote the Golang section of this project."
+        "description": "Cloud Flare Scanner. I wrote the Golang section of this project."
       },
       "gfwknock": {
         "description": "Bypass GFW detection with packet fragmentation method PoC, written in Golang."
@@ -164,13 +186,13 @@
     "heading": "Certificates",
     "languagesHeading": "Languages",
     "items": [
-      "Programming in Golang — University of California, Irvine",
-      "Programming in Python — Meta",
-      "Version Control — Meta"
+      "Programming in Golang, University of California, Irvine",
+      "Programming in Python, Meta",
+      "Version Control, Meta"
     ]
   },
   "contact": {
-    "blurb": "Have an opportunity, a question, or just want to say hi? Send me a message — it opens your mail client pre-filled to ",
+    "blurb": "Have an opportunity, a question, or just want to say hi? Send me a message. It opens your mail client pre-filled to ",
     "blurbSuffix": ".",
     "name": "Name",
     "email": "Email",
@@ -180,11 +202,16 @@
     "sendViaMail": "Send via mail",
     "openMailto": "Open mailto directly"
   },
-  "footer": { "builtWith": "Built with React, Vite & shadcn/ui." },
-  "misc": { "backToTop": "Back to top", "loading": "Loading" },
+  "footer": {
+    "builtWith": "Built with React, Vite & shadcn/ui."
+  },
+  "misc": {
+    "backToTop": "Back to top",
+    "loading": "Loading"
+  },
   "blog": {
     "readMore": "Read more",
-    "noPosts": "No posts yet — check back soon.",
+    "noPosts": "No posts yet. Check back soon.",
     "minRead": "min read",
     "close": "Close",
     "publishedOn": "Published",

@@ -6,19 +6,19 @@ import { useTheme } from "@/hooks/use-theme";
  *
  * Nodes are scattered into organic clusters, wired to their nearest neighbours
  * within a cluster, and stitched across clusters by a sparser set of "bridge"
- * links. Signals then travel along short intra-cluster edges — mostly benign
+ * links. Signals then travel along short intra-cluster edges - mostly benign
  * (sky), occasionally a warning (amber) or an alert (red) that lights up the
  * node it lands on.
  *
  * Everything is drawn in normalized [0,1] space and scaled at paint time, so a
- * resize only re-scales — the topology is rebuilt only when the density tier
+ * resize only re-scales - the topology is rebuilt only when the density tier
  * changes.
  */
 
 type Node = {
   x: number;
   y: number;
-  /** Origin — the drift below oscillates around this. */
+  /** Origin - the drift below oscillates around this. */
   ox: number;
   oy: number;
   bxPhase: number;
@@ -45,7 +45,7 @@ type Edge = {
   /** Decays back to 0; briefly brightens the edge after a signal spawns. */
   activity: number;
   isBridge: boolean;
-  /** A spoke into the anchor — drawn brighter and heavier than the mesh. */
+  /** A spoke into the anchor - drawn brighter and heavier than the mesh. */
   isSpoke: boolean;
 };
 
@@ -67,7 +67,7 @@ type Palette = {
   sky: string;
   amber: string;
   red: string;
-  /** Multiplies every line opacity — light backgrounds need more ink. */
+  /** Multiplies every line opacity - light backgrounds need more ink. */
   gain: number;
 };
 
@@ -92,7 +92,7 @@ const PALETTES: Record<"light" | "dark", Palette> = {
     sky: "2, 132, 199",
     amber: "217, 119, 6",
     red: "220, 38, 38",
-    // Sky-on-white needs a lift over sky-on-black, but only a little — past
+    // Sky-on-white needs a lift over sky-on-black, but only a little - past
     // ~1.5 the mesh stops being a backdrop and competes with the headline.
     gain: 1.45,
   },
@@ -103,7 +103,7 @@ const rand = (min: number, max: number) => min + Math.random() * (max - min);
 /** Node/cluster counts scale with area so density stays constant. */
 function densityFor(w: number, h: number) {
   const area = w * h;
-  // Phone-sized viewports land in the lowest tier — the same node count reads
+  // Phone-sized viewports land in the lowest tier - the same node count reads
   // as noise rather than structure once it's packed into 390px.
   if (area < 560 * 760) return { nodes: 380, clusters: 28 };
   if (area < 900 * 700) return { nodes: 700, clusters: 40 };
@@ -117,7 +117,7 @@ export function NodeGraph({
 }: {
   className?: string;
   /**
-   * Element to pin an extra, well-connected node at — the avatar marker. Its
+   * Element to pin an extra, well-connected node at - the avatar marker. Its
    * centre is measured against the canvas, so the mesh converges on wherever
    * the layout actually puts it. Edges into it are brighter and carry extra
    * traffic.
@@ -273,7 +273,7 @@ export function NodeGraph({
         for (let k = 0; k < take; k++) link(i, candidates[k].j, false);
       }
 
-      // Cross-cluster bridges — sparse, dimmer, and never carry signals.
+      // Cross-cluster bridges - sparse, dimmer, and never carry signals.
       const bridgeAttempts = Math.round(nodeCount * 1.4);
       for (let i = 0; i < bridgeAttempts; i++) {
         const a = Math.floor(Math.random() * nodes.length);
@@ -337,7 +337,7 @@ export function NodeGraph({
 
     function spawnSignal() {
       if (edges.length === 0) return;
-      // Only short, intra-cluster edges carry signals — a pulse crossing the
+      // Only short, intra-cluster edges carry signals - a pulse crossing the
       // whole canvas reads as a stray line rather than as traffic.
       let edge: Edge | null = null;
       for (let tries = 0; tries < 8; tries++) {
@@ -445,7 +445,7 @@ export function NodeGraph({
         ctx!.stroke();
       }
 
-      // Signals — a short gradient segment sliding along its edge.
+      // Signals - a short gradient segment sliding along its edge.
       for (let i = signals.length - 1; i >= 0; i--) {
         const s = signals[i];
         if (s.t > 1.05 || s.t < -0.05) {
@@ -488,7 +488,7 @@ export function NodeGraph({
 
       // Nodes.
       for (const node of nodes) {
-        // The avatar marker covers the anchor — drawing it would show a dot
+        // The avatar marker covers the anchor - drawing it would show a dot
         // through the image's edge.
         if (node.isAnchor) continue;
         const breath = 0.5 + 0.5 * Math.sin(node.pulsePhase);
@@ -588,7 +588,7 @@ export function NodeGraph({
   return (
     <div ref={hostRef} aria-hidden className={className}>
       <canvas ref={canvasRef} className="absolute inset-0 h-full w-full" />
-      {/* Vignette — keeps the graph off the headline. */}
+      {/* Vignette - keeps the graph off the headline. */}
       <div
         className="absolute inset-0"
         style={{

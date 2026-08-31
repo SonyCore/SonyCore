@@ -54,7 +54,7 @@ export function Hero() {
   const marker = (
     <figure className="flex flex-col items-center gap-5 sm:gap-10">
       <div ref={markerRef} className="relative">
-        {/* Concentric rings — a map-marker / radar read. */}
+        {/* Concentric rings - a map-marker / radar read. */}
         <span
           aria-hidden
           className="absolute -inset-4 rounded-full border border-border sm:-inset-7"

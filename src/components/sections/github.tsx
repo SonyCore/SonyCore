@@ -25,7 +25,7 @@ export function GitHubSection() {
 
   const profileUrl = resume.socials.github;
 
-  // Explicit colours rather than a canned theme — the stock ones are purple/
+  // Explicit colours rather than a canned theme - the stock ones are purple/
   // green and fight the palette.
   const streakColors = isDark
     ? {

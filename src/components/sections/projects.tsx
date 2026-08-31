@@ -26,7 +26,7 @@ export function Projects() {
                 aria-label={`${t.projects.viewOnGithub}: ${p.name}`}
                 className="group flex h-full flex-col overflow-hidden rounded-lg border border-border bg-card transition-colors duration-200 hover:border-input focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-brand"
               >
-                {/* Filename strip — the panel header from the reference. */}
+                {/* Filename strip - the panel header from the reference. */}
                 <div className="panel-head">
                   <span className="truncate text-muted-foreground transition-colors group-hover:text-brand">
                     {p.name}

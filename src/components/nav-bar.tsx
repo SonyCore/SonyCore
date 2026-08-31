@@ -17,13 +17,14 @@ import { useLocale } from "@/hooks/use-locale";
 import { resume } from "@/data/resume";
 import { cn } from "@/lib/utils";
 
+// Order must match the section order in home.tsx - scroll-spy walks this list.
 const NAV_IDS = [
   "home",
-  "about",
   "experience",
-  "skills",
   "projects",
+  "skills",
   "github",
+  "about",
   "blog",
   "certificates",
   "contact",

@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 interface SectionProps {
   id: string;
   title?: string;
-  /** Trailing half of the title, rendered muted — "Selected _work_". */
+  /** Trailing half of the title, rendered muted - "Selected _work_". */
   titleMuted?: string;
   /** Mono uppercase label above the title. */
   eyebrow?: string;
