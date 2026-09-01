@@ -20,8 +20,6 @@ function parseFrontmatter(raw: string): {
   const body = raw.slice(match[0].length);
   const data: Record<string, unknown> = {};
 
-  // Tiny YAML subset: scalar values + simple `key:\n  - item` lists.
-  // Sufficient for blog frontmatter; not a general YAML parser.
   const lines = yaml.split("\n");
   let currentListKey: string | null = null;
   let currentList: string[] = [];

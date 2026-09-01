@@ -1,24 +1,9 @@
 import { useEffect, useRef } from "react";
 import { useTheme } from "@/hooks/use-theme";
 
-/**
- * Animated clustered-node backdrop for the hero.
- *
- * Nodes are scattered into organic clusters, wired to their nearest neighbours
- * within a cluster, and stitched across clusters by a sparser set of "bridge"
- * links. Signals then travel along short intra-cluster edges - mostly benign
- * (sky), occasionally a warning (amber) or an alert (red) that lights up the
- * node it lands on.
- *
- * Everything is drawn in normalized [0,1] space and scaled at paint time, so a
- * resize only re-scales - the topology is rebuilt only when the density tier
- * changes.
- */
-
 type Node = {
   x: number;
   y: number;
-  /** Origin - the drift below oscillates around this. */
   ox: number;
   oy: number;
   bxPhase: number;
@@ -31,27 +16,22 @@ type Node = {
   pulseFreq: number;
   isHub: boolean;
   alertUntil: number;
-  /** The node the avatar sits on: pinned, undrawn, and heavily trafficked. */
   isAnchor: boolean;
 };
 
 type Edge = {
   a: number;
   b: number;
-  /** Resting opacity. */
   base: number;
   breathe: number;
   breatheFreq: number;
-  /** Decays back to 0; briefly brightens the edge after a signal spawns. */
   activity: number;
   isBridge: boolean;
-  /** A spoke into the anchor - drawn brighter and heavier than the mesh. */
   isSpoke: boolean;
 };
 
 type Signal = {
   edge: Edge;
-  /** Position along the edge, 0→1. */
   t: number;
   dir: 1 | -1;
   speed: number;
@@ -67,7 +47,6 @@ type Palette = {
   sky: string;
   amber: string;
   red: string;
-  /** Multiplies every line opacity - light backgrounds need more ink. */
   gain: number;
 };
 
@@ -92,19 +71,14 @@ const PALETTES: Record<"light" | "dark", Palette> = {
     sky: "2, 132, 199",
     amber: "217, 119, 6",
     red: "220, 38, 38",
-    // Sky-on-white needs a lift over sky-on-black, but only a little - past
-    // ~1.5 the mesh stops being a backdrop and competes with the headline.
     gain: 1.45,
   },
 };
 
 const rand = (min: number, max: number) => min + Math.random() * (max - min);
 
-/** Node/cluster counts scale with area so density stays constant. */
 function densityFor(w: number, h: number) {
   const area = w * h;
-  // Phone-sized viewports land in the lowest tier - the same node count reads
-  // as noise rather than structure once it's packed into 390px.
   if (area < 560 * 760) return { nodes: 380, clusters: 28 };
   if (area < 900 * 700) return { nodes: 700, clusters: 40 };
   if (area < 1400 * 900) return { nodes: 1100, clusters: 56 };
@@ -116,23 +90,14 @@ export function NodeGraph({
   anchorRef: externalAnchorRef,
 }: {
   className?: string;
-  /**
-   * Element to pin an extra, well-connected node at - the avatar marker. Its
-   * centre is measured against the canvas, so the mesh converges on wherever
-   * the layout actually puts it. Edges into it are brighter and carry extra
-   * traffic.
-   */
   anchorRef?: React.RefObject<HTMLElement | null>;
 }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const hostRef = useRef<HTMLDivElement>(null);
   const { theme } = useTheme();
 
-  // Resolved at measure time, read at build time.
   const anchorRef = useRef<{ x: number; y: number } | undefined>(undefined);
 
-  // Read by the render loop every frame, so a theme flip recolours the graph
-  // without tearing down the animation.
   const paletteRef = useRef<Palette>(PALETTES[theme]);
   paletteRef.current = PALETTES[theme];
 
@@ -148,7 +113,6 @@ export function NodeGraph({
     let nodes: Node[] = [];
     let edges: Edge[] = [];
     let signals: Signal[] = [];
-    /** Edges touching the anchor, kept apart so we can over-serve them. */
     let anchorEdges: Edge[] = [];
 
     function build(nodeCount: number, clusterCount: number) {
@@ -157,8 +121,6 @@ export function NodeGraph({
       signals = [];
       anchorEdges = [];
 
-      // Cluster centres, placed by best-of-8 farthest-point sampling so they
-      // spread out without the rigidity of a grid.
       const margin = 0.08;
       const clusters: { x: number; y: number; radius: number; weight: number }[] =
         [];
@@ -187,8 +149,6 @@ export function NodeGraph({
         });
       }
 
-      // Scatter nodes into clusters, weighted. The first node to land in a
-      // cluster becomes its hub: bigger, and more heavily wired.
       const totalWeight = clusters.reduce((sum, c) => sum + c.weight, 0);
       const filled = new Array(clusterCount).fill(0);
       for (let n = 0; n < nodeCount; n++) {
@@ -203,7 +163,6 @@ export function NodeGraph({
         }
         const cluster = clusters[ci];
 
-        // Sum of two uniforms → a soft centre-weighted falloff.
         let x = cluster.x;
         let y = cluster.y;
         for (let attempt = 0; attempt < 8; attempt++) {
@@ -257,7 +216,6 @@ export function NodeGraph({
         });
       };
 
-      // Intra-cluster: wire each node to its k nearest cluster-mates.
       for (let i = 0; i < nodes.length; i++) {
         const node = nodes[i];
         const degree = node.isHub ? rand(10, 18) : rand(5, 10);
@@ -273,7 +231,6 @@ export function NodeGraph({
         for (let k = 0; k < take; k++) link(i, candidates[k].j, false);
       }
 
-      // Cross-cluster bridges - sparse, dimmer, and never carry signals.
       const bridgeAttempts = Math.round(nodeCount * 1.4);
       for (let i = 0; i < bridgeAttempts; i++) {
         const a = Math.floor(Math.random() * nodes.length);
@@ -281,9 +238,6 @@ export function NodeGraph({
         if (nodes[a].cluster !== nodes[b].cluster) link(a, b, true);
       }
 
-      // The anchor: a pinned node the avatar sits on top of. It ignores
-      // cluster membership and wires to whatever is nearest, so the mesh
-      // visibly converges on it from every direction.
       const at = anchorRef.current;
       if (at) {
         const ai = nodes.length;
@@ -296,8 +250,6 @@ export function NodeGraph({
           byPhase: 0,
           bxFreq: 0,
           byFreq: 0,
-          // Pinned: the avatar is at a fixed CSS position, so any drift here
-          // would tear the edges away from it.
           bAmp: 0,
           cluster: -1,
           pulsePhase: 0,
@@ -314,15 +266,11 @@ export function NodeGraph({
           near.push({ j, d: dx * dx + dy * dy });
         }
         near.sort((p, q) => p.d - q.d);
-        // Skip the very closest few: spokes that start under the avatar have
-        // no visible run before they disappear beneath it.
         const before = edges.length;
         for (let k = 3; k < Math.min(near.length, 22); k++) {
           link(ai, near[k].j, false);
         }
         anchorEdges = edges.slice(before);
-        // Bright enough to stay legible through the vignette, which is at its
-        // strongest this far off-centre.
         for (const e of anchorEdges) {
           e.base = rand(0.24, 0.4);
           e.isSpoke = true;
@@ -337,12 +285,8 @@ export function NodeGraph({
 
     function spawnSignal() {
       if (edges.length === 0) return;
-      // Only short, intra-cluster edges carry signals - a pulse crossing the
-      // whole canvas reads as a stray line rather than as traffic.
       let edge: Edge | null = null;
       for (let tries = 0; tries < 8; tries++) {
-        // Over-serve the anchor so there is always visible traffic arriving at
-        // the avatar rather than the odd stray pulse.
         const pool =
           anchorEdges.length > 0 && Math.random() < 0.3 ? anchorEdges : edges;
         const cand = pool[Math.floor(Math.random() * pool.length)];
@@ -376,19 +320,19 @@ export function NodeGraph({
       }
     }
 
+    let dprCap = 4;
     let dpr = 1;
     function resize() {
       const rect = host!.getBoundingClientRect();
       width = rect.width;
       height = rect.height;
-      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      dpr = Math.min(window.devicePixelRatio || 1, dprCap);
       canvas!.width = Math.max(1, Math.floor(width * dpr));
       canvas!.height = Math.max(1, Math.floor(height * dpr));
       canvas!.style.width = `${width}px`;
       canvas!.style.height = `${height}px`;
       ctx!.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-      // Where is the avatar right now, in canvas space?
       const el = externalAnchorRef?.current;
       const previous = anchorRef.current;
       if (el && width > 0 && height > 0) {
@@ -413,22 +357,31 @@ export function NodeGraph({
         build(tier.nodes, tier.clusters);
       }
     }
-    // Measure after layout has settled, so the anchor lands on the real
-    // position rather than a pre-paint estimate.
     resize();
     const settle = requestAnimationFrame(resize);
 
     const observer = new ResizeObserver(resize);
     observer.observe(host);
-    // The marker can move without the host changing size (reflow above it on
-    // narrow layouts), so watch it too.
+
+    let dprQuery: MediaQueryList | null = null;
+    const onDprChange = () => {
+      watchDpr();
+      resize();
+    };
+    function watchDpr() {
+      dprQuery?.removeEventListener("change", onDprChange);
+      dprQuery = window.matchMedia(
+        `(resolution: ${window.devicePixelRatio || 1}dppx)`,
+      );
+      dprQuery.addEventListener("change", onDprChange);
+    }
+    watchDpr();
     if (externalAnchorRef?.current) observer.observe(externalAnchorRef.current);
 
     function draw(now: number) {
       const p = paletteRef.current;
       ctx!.clearRect(0, 0, width, height);
 
-      // Edges.
       for (const edge of edges) {
         const a = nodes[edge.a];
         const b = nodes[edge.b];
@@ -445,7 +398,6 @@ export function NodeGraph({
         ctx!.stroke();
       }
 
-      // Signals - a short gradient segment sliding along its edge.
       for (let i = signals.length - 1; i >= 0; i--) {
         const s = signals[i];
         if (s.t > 1.05 || s.t < -0.05) {
@@ -479,17 +431,13 @@ export function NodeGraph({
         ctx!.lineCap = "butt";
         ctx!.stroke();
 
-        // An alert arriving lights up the node it lands on.
         if (s.tone === "red" && (s.t > 0.95 || s.t < 0.05)) {
           const target = s.dir > 0 ? nodes[s.edge.b] : nodes[s.edge.a];
           target.alertUntil = Math.max(target.alertUntil, now + 400);
         }
       }
 
-      // Nodes.
       for (const node of nodes) {
-        // The avatar marker covers the anchor - drawing it would show a dot
-        // through the image's edge.
         if (node.isAnchor) continue;
         const breath = 0.5 + 0.5 * Math.sin(node.pulsePhase);
         const alerting = now < node.alertUntil;
@@ -508,7 +456,6 @@ export function NodeGraph({
       }
     }
 
-    // Reduced motion: paint a single resting frame and stop.
     const still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (still) {
       draw(performance.now());
@@ -521,6 +468,21 @@ export function NodeGraph({
       };
     }
 
+    let sampled = 0;
+    let slowFrames = 0;
+    function checkFrameBudget(dt: number) {
+      if (dprCap <= 2) return;
+      sampled++;
+      if (dt > 0.028) slowFrames++;
+      if (sampled < 90) return;
+      if (slowFrames > 45) {
+        dprCap -= 1;
+        resize();
+      }
+      sampled = 0;
+      slowFrames = 0;
+    }
+
     let frame = 0;
     let last = performance.now();
     let spawnAccum = 0;
@@ -528,7 +490,6 @@ export function NodeGraph({
     let nextBurst = rand(4, 9);
     let running = true;
 
-    // Don't animate an invisible tab.
     const onVisibility = () => {
       running = !document.hidden;
       last = performance.now();
@@ -541,6 +502,7 @@ export function NodeGraph({
 
       const dt = Math.min(0.05, (now - last) / 1000);
       last = now;
+      checkFrameBudget(dt);
 
       for (const node of nodes) {
         node.bxPhase += dt * node.bxFreq;
@@ -550,7 +512,6 @@ export function NodeGraph({
         node.pulsePhase += dt * node.pulseFreq;
       }
 
-      // Traffic comes in waves rather than at a flat rate.
       nextBurst -= dt;
       if (nextBurst <= 0) {
         burstUntil = now + rand(900, 1600);
@@ -581,6 +542,7 @@ export function NodeGraph({
       cancelAnimationFrame(frame);
       cancelAnimationFrame(settle);
       observer.disconnect();
+      dprQuery?.removeEventListener("change", onDprChange);
       document.removeEventListener("visibilitychange", onVisibility);
     };
   }, [externalAnchorRef]);
@@ -588,7 +550,6 @@ export function NodeGraph({
   return (
     <div ref={hostRef} aria-hidden className={className}>
       <canvas ref={canvasRef} className="absolute inset-0 h-full w-full" />
-      {/* Vignette - keeps the graph off the headline. */}
       <div
         className="absolute inset-0"
         style={{

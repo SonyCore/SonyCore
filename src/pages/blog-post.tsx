@@ -6,7 +6,7 @@ import { ArrowLeft, ArrowUpRight, Calendar, Clock } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { LocaleToggle } from "@/components/locale-toggle";
 import { Footer } from "@/components/sections/footer";
@@ -41,7 +41,6 @@ export function BlogPostPage() {
             className="flex items-center gap-2.5 text-[15px] font-medium tracking-[-0.01em]"
           >
             <Avatar className="h-7 w-7 rounded-md border border-border">
-              <AvatarImage src="/avatar.png" alt={resume.name} />
               <AvatarFallback className="rounded-md bg-card font-mono text-[10px] text-subtle">
                 {initials}
               </AvatarFallback>

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { NavBar } from "@/components/nav-bar";
 import { BackToTop } from "@/components/back-to-top";
@@ -7,17 +7,54 @@ import { About } from "@/components/sections/about";
 import { Experience } from "@/components/sections/experience";
 import { Skills } from "@/components/sections/skills";
 import { Projects } from "@/components/sections/projects";
-import { GitHubSection } from "@/components/sections/github";
+
 import { Blog } from "@/components/sections/blog";
 import { Certificates } from "@/components/sections/certificates";
 import { Contact } from "@/components/sections/contact";
 import { Footer } from "@/components/sections/footer";
 
+const GitHubSection = lazy(() =>
+  import("@/components/sections/github").then((m) => ({
+    default: m.GitHubSection,
+  })),
+);
+
+function WhenNear({
+  children,
+  minHeight,
+}: {
+  children: React.ReactNode;
+  minHeight: number;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || show) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          setShow(true);
+          io.disconnect();
+        }
+      },
+      { rootMargin: "600px" },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [show]);
+
+  return (
+    <div ref={ref} style={show ? undefined : { minHeight }}>
+      {show ? <Suspense fallback={null}>{children}</Suspense> : null}
+    </div>
+  );
+}
+
 export function HomePage() {
   const location = useLocation();
 
-  // When arriving from a non-home route via /#section, scroll to the section
-  // after the page has rendered.
   useEffect(() => {
     const hash = location.hash.slice(1);
     if (!hash) return;
@@ -27,8 +64,6 @@ export function HomePage() {
     return () => window.cancelAnimationFrame(id);
   }, [location.hash]);
 
-  // Prefetch the blog-post chunk during browser idle so that clicking a post
-  // doesn't pay the network round-trip - the chunk is already cached by then.
   useEffect(() => {
     const win = window as Window & {
       requestIdleCallback?: (cb: () => void) => number;
@@ -49,13 +84,13 @@ export function HomePage() {
     <>
       <NavBar />
       <main>
-        {/* Proof first: what she has shipped and operated leads, the personal
-            framing follows it rather than gating it. */}
         <Hero />
         <Experience />
         <Projects />
         <Skills />
-        <GitHubSection />
+        <WhenNear minHeight={620}>
+          <GitHubSection />
+        </WhenNear>
         <About />
         <Blog />
         <Certificates />

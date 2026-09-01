@@ -8,12 +8,10 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        // Solid ink on the page ground - the one high-contrast control.
         default:
           "bg-primary text-primary-foreground hover:-translate-y-px hover:bg-foreground",
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        // Hairline outline that only firms up on hover.
         outline:
           "border-input bg-transparent text-muted-foreground hover:border-muted-foreground/60 hover:text-foreground",
         secondary:

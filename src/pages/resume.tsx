@@ -8,18 +8,6 @@ import type { Translation } from "@/lib/i18n";
 
 type SkillCategoryKey = keyof Translation["skillCategories"];
 
-/**
- * ATS-safe resume, built from the same data as the site.
- *
- * Applicant tracking systems extract a linear text stream, so everything here
- * is deliberately plain: one column, real headings in the order parsers expect
- * (Summary, Experience, Skills, Projects, Certifications, Languages), no
- * tables, no multi-column layout, no text in images, and no glyphs that break
- * extraction. The email and profile URLs are written out in full so contact
- * fields auto-populate correctly.
- *
- * "Print to PDF" from here produces a file an ATS can read end to end.
- */
 export function ResumePage() {
   const { t } = useLocale();
 
@@ -36,7 +24,6 @@ export function ResumePage() {
 
   return (
     <div className="resume-page mx-auto max-w-[820px] px-6 py-10">
-      {/* Screen-only toolbar. */}
       <div className="mb-8 flex flex-wrap items-center justify-between gap-3 print:hidden">
         <Link
           to="/"
@@ -57,7 +44,6 @@ export function ResumePage() {
         <p className="mt-1 text-[15px] font-medium">
           {t.resume.title}, {t.resume.specialty}
         </p>
-        {/* Plain text, no icons: these are the fields an ATS scrapes. */}
         <p className="mt-2 text-[13px] leading-relaxed" dir="ltr">
           {resume.email} · {resume.location} · {github} · {linkedin}
         </p>
@@ -100,8 +86,6 @@ export function ResumePage() {
 
       <section className="mb-4">
         <h2 className="resume-h2">Skills</h2>
-        {/* Comma-separated runs under a plain label parse far more reliably
-            than chips, columns or tables. */}
         {Object.entries(resume.skills).map(([category, items]) => (
           <p key={category} className="mb-1 text-[13px] leading-snug">
             <span className="font-semibold">
@@ -124,8 +108,6 @@ export function ResumePage() {
           const tp =
             t.projects.items[p.id as keyof typeof t.projects.items] ??
             ({ description: "" } as { description: string });
-          // First sentence only: the full text lives on the site, and a resume
-          // wants one scannable line per project.
           const summary = tp.description.split(/(?<=\.)\s/)[0] ?? tp.description;
           return (
             <p key={p.id} className="mb-1 text-[13px] leading-snug">

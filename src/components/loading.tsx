@@ -3,9 +3,7 @@ import { useLocale } from "@/hooks/use-locale";
 import { cn } from "@/lib/utils";
 
 interface LoadingProps {
-  /** When true, fills the viewport with a backdrop. Otherwise, lays out inline at min-h-[40vh]. */
   fullScreen?: boolean;
-  /** Override the default localized "Loading" label. */
   label?: string;
   className?: string;
 }

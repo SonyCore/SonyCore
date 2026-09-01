@@ -21,8 +21,6 @@ export function Reveal({
     <Tag
       ref={ref as never}
       style={{
-        // Apply the delay only when transitioning *into* the revealed state
-        // so that a stagger doesn't run when the element initially mounts.
         transitionDelay: revealed ? `${delay}ms` : "0ms",
         transitionDuration: "700ms",
         transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)",

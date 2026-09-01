@@ -159,6 +159,9 @@
       "namira-core": {
         "description": "VPN proxy yapılandırmaları için yüksek performanslı, kendi kendine barındırılan bir kalite güvence araç seti. VMess, VLESS, Trojan ve Shadowsocks bağlantılarını gerçek TCP el sıkışmaları ve gecikme ölçümleriyle doğrular, kıyaslar ve sıralar."
       },
+      "hydra": {
+        "description": "Hydra Download Manager (HDM), hız, dayanıklılık ve uyarlanabilirlik için tasarlanmış açık kaynaklı, yüksek performanslı bir ağ dosyası alıcısı ve indirme hızlandırıcıdır."
+      },
       "xraygen": {
         "description": "XRay JSON yapılandırmaları üretir ve sunucu tarafında XRay dağıtımını otomatikleştirir."
       },

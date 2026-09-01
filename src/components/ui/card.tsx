@@ -26,10 +26,6 @@ const CardHeader = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDiv
 );
 CardHeader.displayName = "CardHeader";
 
-/**
- * Mono strip across the top of a panel - a filename/status line rather than a
- * heading. Pairs with CardContent below it.
- */
 const CardBar = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   ({ className, ...props }, ref) => (
     <div ref={ref} className={cn("panel-head", className)} {...props} />

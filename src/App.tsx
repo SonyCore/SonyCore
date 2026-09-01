@@ -9,7 +9,6 @@ const BlogPostPage = lazy(() =>
   import("@/pages/blog-post").then((m) => ({ default: m.BlogPostPage })),
 );
 
-// Split out: the resume view is only reached deliberately.
 const ResumePage = lazy(() =>
   import("@/pages/resume").then((m) => ({ default: m.ResumePage })),
 );

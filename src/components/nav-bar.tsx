@@ -1,23 +1,19 @@
-import { useState } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { LocaleToggle } from "@/components/locale-toggle";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { useScrollSpy } from "@/hooks/use-scroll-spy";
 import { useLocale } from "@/hooks/use-locale";
 import { resume } from "@/data/resume";
 import { cn } from "@/lib/utils";
 
-// Order must match the section order in home.tsx - scroll-spy walks this list.
+const MobileNav = lazy(() =>
+  import("@/components/mobile-nav").then((m) => ({ default: m.MobileNav })),
+);
+
 const NAV_IDS = [
   "home",
   "experience",
@@ -35,8 +31,6 @@ export function NavBar() {
   const location = useLocation();
   const isHome = location.pathname === "/";
 
-  // Scroll-spy only matters on the home page; on other pages we don't have
-  // these sections in the DOM, so feed an empty list.
   const active = useScrollSpy(isHome ? [...NAV_IDS] : []);
   const [open, setOpen] = useState(false);
   const { t, isRtl } = useLocale();
@@ -46,6 +40,22 @@ export function NavBar() {
     .split(" ")
     .map((n) => n[0])
     .join("");
+
+  useEffect(() => {
+    const win = window as Window & {
+      requestIdleCallback?: (cb: () => void) => number;
+      cancelIdleCallback?: (id: number) => void;
+    };
+    const warm = () => {
+      void import("@/components/mobile-nav").catch(() => {});
+    };
+    if (win.requestIdleCallback) {
+      const handle = win.requestIdleCallback(warm);
+      return () => win.cancelIdleCallback?.(handle);
+    }
+    const handle = window.setTimeout(warm, 2000);
+    return () => window.clearTimeout(handle);
+  }, []);
 
   function goToSection(id: string) {
     if (isHome) {
@@ -76,7 +86,6 @@ export function NavBar() {
           className="flex items-center gap-2.5 text-[15px] font-medium tracking-[-0.01em]"
         >
           <Avatar className="h-7 w-7 rounded-md border border-border">
-            <AvatarImage src="/avatar.png" alt={resume.name} />
             <AvatarFallback className="rounded-md bg-card font-mono text-[10px] text-subtle">
               {initials}
             </AvatarFallback>
@@ -109,50 +118,30 @@ export function NavBar() {
         <div className="flex items-center gap-2">
           <LocaleToggle className="hidden md:flex" />
           <ThemeToggle />
-          <Sheet open={open} onOpenChange={setOpen}>
-            <SheetTrigger asChild>
-              <Button
-                variant="ghost"
-                size="icon"
-                className="lg:hidden"
-                aria-label={t.nav.openMenu}
-              >
-                <Menu />
-              </Button>
-            </SheetTrigger>
-            <SheetContent side={isRtl ? "left" : "right"} className="w-72">
-              <SheetHeader>
-                <SheetTitle className="mono-label">{resume.name}</SheetTitle>
-              </SheetHeader>
-              <nav className="mt-6 flex flex-col">
-                {navItems.map((item, i) => (
-                  <a
-                    key={item.id}
-                    href={isHome ? `#${item.id}` : `/#${item.id}`}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      setOpen(false);
-                      window.setTimeout(() => goToSection(item.id), 100);
-                    }}
-                    className={cn(
-                      "flex items-baseline gap-3 border-b border-border py-3 text-sm transition-colors",
-                      active === item.id
-                        ? "text-foreground"
-                        : "text-muted-foreground hover:text-foreground",
-                    )}
-                  >
-                    <span className="font-mono text-[10px] text-faint">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    {item.label}
-                  </a>
-                ))}
-              </nav>
-              <div className="mt-6 flex justify-center md:hidden">
-                <LocaleToggle />
-              </div>
-            </SheetContent>
-          </Sheet>
+          <Button
+            variant="ghost"
+            size="icon"
+            className="lg:hidden"
+            aria-label={t.nav.openMenu}
+            aria-expanded={open}
+            onClick={() => setOpen(true)}
+          >
+            <Menu />
+          </Button>
+          {open && (
+            <Suspense fallback={null}>
+              <MobileNav
+                open={open}
+                onOpenChange={setOpen}
+                items={navItems}
+                active={active}
+                isRtl={isRtl}
+                title={resume.name}
+                onNavigate={goToSection}
+                isHome={isHome}
+              />
+            </Suspense>
+          )}
         </div>
       </div>
     </header>

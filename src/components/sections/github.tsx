@@ -7,7 +7,6 @@ import { resume } from "@/data/resume";
 
 const GH_USERNAME = "SonyCore";
 
-// Sky ramp instead of GitHub green, so the graph reads as part of the page.
 const lightTheme = {
   light: ["#e3e5ea", "#bae6fd", "#7dd3fc", "#38bdf8", "#0284c7"],
   dark: ["#e3e5ea", "#bae6fd", "#7dd3fc", "#38bdf8", "#0284c7"],
@@ -25,8 +24,6 @@ export function GitHubSection() {
 
   const profileUrl = resume.socials.github;
 
-  // Explicit colours rather than a canned theme - the stock ones are purple/
-  // green and fight the palette.
   const streakColors = isDark
     ? {
         background: "0f1115",

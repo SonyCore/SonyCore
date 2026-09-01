@@ -10,8 +10,6 @@
       Consolas, monospace;
     --font-display: "Space Grotesk", "Inter Tight", var(--font-sans);
 
-    /* Light: the cool-grey counterpart to the dark palette below - same hues,
-       inverted lightness ramp, so both themes read as one family. */
     --background: 240 14% 98.6%;
     --foreground: 218 18% 8.6%;
     --card: 0 0% 100%;
@@ -32,12 +30,10 @@
     --input: 218 14.3% 84.9%;
     --ring: 199 89% 48%;
 
-    /* Sky accent - the one chromatic note in the whole system. */
     --brand: 199 89% 48%; /* #0ea5e9 */
     --brand-strong: 200 98% 39%; /* #0284c7 */
     --brand-soft: 199 95% 74%; /* #7dd3fc */
 
-    /* Two extra steps below muted-foreground, for mono micro-copy. */
     --subtle: 220 8.9% 46.1%;
     --faint: 218 12.3% 69.6%;
 
@@ -47,16 +43,12 @@
     --radius: 0.625rem;
   }
 
-  /* Persian: Vazirmatn for both sans and "mono" (real monospace Persian
-     doesn't render well - we keep Latin tokens crisp via JetBrains Mono fallback). */
   :root[lang="fa"] {
     --font-sans: "Vazirmatn", "Inter Tight", ui-sans-serif, system-ui, sans-serif;
     --font-mono: "Vazirmatn", "JetBrains Mono", ui-monospace, monospace;
     --font-display: "Vazirmatn", var(--font-sans);
   }
 
-  /* Dark: the reference palette - #08090b ground, #0f1115 panels,
-     #1c2026 hairlines, #e8eaed ink. */
   .dark {
     --background: 220 15.8% 3.7%; /* #08090b */
     --foreground: 216 12.2% 92%; /* #e8eaed */
@@ -110,7 +102,6 @@
     color: hsl(var(--background));
   }
 
-  /* Thin, unobtrusive scrollbar in the panel colours. */
   ::-webkit-scrollbar {
     width: 10px;
     height: 10px;
@@ -128,8 +119,6 @@
 }
 
 @layer components {
-  /* ── Mono micro-label with the leading rule, as used above every section
-     title and panel header. */
   .mono-label {
     @apply flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-[0.08em] text-subtle;
   }
@@ -138,7 +127,6 @@
     @apply h-px w-[18px] shrink-0 bg-faint;
   }
 
-  /* ── Bordered flat panel. No shadow, no gradient - border does the work. */
   .panel {
     @apply overflow-hidden rounded-lg border border-border bg-card;
   }
@@ -149,7 +137,6 @@
     @apply p-5;
   }
 
-  /* ── 56px grid backdrop, faded out radially. */
   .bg-grid {
     background-image:
       linear-gradient(
@@ -171,11 +158,15 @@
     mask-image: radial-gradient(ellipse at center, black 20%, transparent 75%);
   }
 
-  /* ── Live status dot. */
   .live-dot {
     @apply inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-good;
     box-shadow: 0 0 0 3px hsl(var(--good) / 0.18);
     animation: live-pulse 1.8s ease-in-out infinite;
+  }
+
+  .beacon-dot {
+    @apply rounded-full border-2 border-background bg-good;
+    animation: beacon 2.2s ease-out infinite;
   }
 
   .prose-blog {
@@ -242,6 +233,18 @@
   }
 }
 
+@keyframes beacon {
+  0% {
+    box-shadow: 0 0 0 0 hsl(var(--good) / 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 9px hsl(var(--good) / 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 hsl(var(--good) / 0);
+  }
+}
+
 @keyframes live-pulse {
   0%,
   100% {
@@ -263,14 +266,6 @@
   }
 }
 
-/* ── ATS resume page (/resume) ─────────────────────────────────────────────
-   Applicant tracking systems read a linear text stream, so this view stays
-   single-column and monochrome. Printing forces light colours even in dark
-   mode, otherwise "Save as PDF" produces white text on a white page. */
-/* Arial/Helvetica, not the site's webfonts. Chromium embeds webfonts in a
-   printed PDF as Type3 glyph fonts, which many ATS parsers extract badly or
-   not at all; a standard family embeds cleanly and is the conventional
-   resume choice anyway. */
 .resume-page,
 .resume-page * {
   font-family: Arial, Helvetica, "Liberation Sans", sans-serif !important;
@@ -291,10 +286,6 @@
     size: A4;
     margin: 14mm;
   }
-  /* The app wraps everything in a themed background div, which is an ancestor
-     of .resume-page and so isn't covered by the reset below. Without this, a
-     dark-mode visitor who prints with "Background graphics" enabled gets black
-     text on a black page. */
   html,
   body,
   #root,
@@ -315,7 +306,6 @@
   .resume-h2 {
     border-bottom-color: #000 !important;
   }
-  /* Nothing from the app chrome belongs in the printed file. */
   header.sticky,
   footer,
   #boot {

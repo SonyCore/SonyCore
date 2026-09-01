@@ -15,26 +15,6 @@ const Avatar = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElem
 );
 Avatar.displayName = "Avatar";
 
-const AvatarImage = React.forwardRef<
-  HTMLImageElement,
-  React.ImgHTMLAttributes<HTMLImageElement> & { onLoadingError?: () => void }
->(({ className, onLoadingError, ...props }, ref) => {
-  const [errored, setErrored] = React.useState(false);
-  if (errored) return null;
-  return (
-    <img
-      ref={ref}
-      className={cn("absolute inset-0 h-full w-full object-cover", className)}
-      onError={() => {
-        setErrored(true);
-        onLoadingError?.();
-      }}
-      {...props}
-    />
-  );
-});
-AvatarImage.displayName = "AvatarImage";
-
 const AvatarFallback = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   ({ className, ...props }, ref) => (
     <div
@@ -49,4 +29,4 @@ const AvatarFallback = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTM
 );
 AvatarFallback.displayName = "AvatarFallback";
 
-export { Avatar, AvatarImage, AvatarFallback };
+export { Avatar, AvatarFallback };
