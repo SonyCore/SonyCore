@@ -1,7 +1,3 @@
-import i18n from "i18next";
-import { initReactI18next } from "react-i18next";
-import LanguageDetector from "i18next-browser-languagedetector";
-
 import en from "@/locales/en.json";
 import fa from "@/locales/fa.json";
 import tr from "@/locales/tr.json";
@@ -20,40 +16,62 @@ export const LOCALE_META: Record<
 
 export type Translation = typeof en;
 
+const RESOURCES: Record<Locale, Translation> = {
+  en,
+  fa: fa as unknown as Translation,
+  tr: tr as unknown as Translation,
+};
+
 export function isLocale(value: unknown): value is Locale {
   return typeof value === "string" && (LOCALES as readonly string[]).includes(value);
 }
 
-i18n
-  .use(LanguageDetector)
-  .use(initReactI18next)
-  .init({
-    resources: {
-      en: { translation: en },
-      fa: { translation: fa },
-      tr: { translation: tr },
-    },
-    fallbackLng: "en",
-    supportedLngs: [...LOCALES],
-    nonExplicitSupportedLngs: true,
-    load: "languageOnly",
-    interpolation: { escapeValue: false },
-    detection: {
-      order: ["localStorage", "navigator"],
-      caches: ["localStorage"],
-      lookupLocalStorage: "locale",
-    },
-    returnObjects: true,
-  });
+const STORAGE_KEY = "locale";
 
-// Keep <html dir|lang> in sync with i18next on every language change.
-function applyHtmlAttrs(lng: string) {
-  const code = (lng?.split("-")[0] ?? "en") as Locale;
-  const safe = isLocale(code) ? code : "en";
-  document.documentElement.lang = safe;
-  document.documentElement.dir = LOCALE_META[safe].dir;
+function detectLocale(): Locale {
+  if (typeof window === "undefined") return "en";
+  try {
+    const stored = window.localStorage.getItem(STORAGE_KEY);
+    if (isLocale(stored)) return stored;
+  } catch {
+  }
+  const base = (navigator.language || "en").slice(0, 2).toLowerCase();
+  return isLocale(base) ? base : "en";
 }
-applyHtmlAttrs(i18n.language);
-i18n.on("languageChanged", applyHtmlAttrs);
 
-export default i18n;
+let current: Locale = detectLocale();
+const listeners = new Set<() => void>();
+
+function applyHtmlAttrs(locale: Locale) {
+  const root = document.documentElement;
+  root.lang = locale;
+  root.dir = LOCALE_META[locale].dir;
+}
+
+if (typeof window !== "undefined") {
+  applyHtmlAttrs(current);
+}
+
+export function getLocale(): Locale {
+  return current;
+}
+
+export function getResources(locale: Locale): Translation {
+  return RESOURCES[locale] ?? en;
+}
+
+export function setLocale(next: Locale) {
+  if (next === current || !isLocale(next)) return;
+  current = next;
+  try {
+    window.localStorage.setItem(STORAGE_KEY, next);
+  } catch {
+  }
+  applyHtmlAttrs(next);
+  listeners.forEach((l) => l());
+}
+
+export function subscribeLocale(callback: () => void) {
+  listeners.add(callback);
+  return () => listeners.delete(callback);
+}

@@ -11,6 +11,7 @@ import {
 import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { NodeGraph } from "@/components/node-graph";
+import { VertexPortrait } from "@/components/vertex-portrait";
 import { WorldMap } from "@/components/world-map";
 import { resume } from "@/data/resume";
 import { useLocale } from "@/hooks/use-locale";
@@ -21,7 +22,6 @@ function scrollToId(id: string) {
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 }
 
-/** Soft ground-coloured halo, so copy stays legible over the node mesh. */
 const HALO =
   "0 0 24px hsl(var(--background)), 0 0 12px hsl(var(--background)), 0 0 4px hsl(var(--background))";
 
@@ -38,23 +38,21 @@ function formatCoord(value: number, positive: string, negative: string) {
 
 export function Hero() {
   const { t } = useLocale();
-  // The graph measures this element and wires the mesh into it, wherever the
-  // responsive layout happens to put it. Exactly one marker is mounted so the
-  // ref can't land on a display:none copy.
   const markerRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
   const isWide = useMediaQuery("(min-width: 768px)");
-  // The map aligns Ankara to this exact pixel, so the marker really is the
-  // city rather than a decoration parked near it.
   const markerCenter = useElementCenter(markerRef, sectionRef);
 
   const { city, lat, lon } = resume.coords;
   const geoLabel = `${formatCoord(lat, "N", "S")} ${formatCoord(lon, "E", "W")}`;
-
   const marker = (
     <figure className="flex flex-col items-center gap-5 sm:gap-10">
-      <div ref={markerRef} className="relative">
-        {/* Concentric rings - a map-marker / radar read. */}
+      <div
+        ref={markerRef}
+        role="img"
+        aria-label={`${resume.name}, ${city}`}
+        className="relative h-16 w-16 sm:h-28 sm:w-28 md:h-32 md:w-32"
+      >
         <span
           aria-hidden
           className="absolute -inset-4 rounded-full border border-border sm:-inset-7"
@@ -63,18 +61,22 @@ export function Hero() {
           aria-hidden
           className="absolute -inset-2 rounded-full border border-input sm:-inset-3.5"
         />
-        <img
-          src="/avatar.png"
-          alt={resume.name}
-          width={128}
-          height={128}
-          fetchPriority="high"
-          className="relative h-16 w-16 rounded-full border border-input object-cover sm:h-28 sm:w-28 md:h-32 md:w-32"
-          style={{ backgroundColor: "hsl(var(--card))" }}
-        />
+        {[
+          "left-1/2 top-0 h-1.5 w-px -translate-x-1/2 -translate-y-3 sm:-translate-y-5",
+          "left-1/2 bottom-0 h-1.5 w-px -translate-x-1/2 translate-y-3 sm:translate-y-5",
+          "top-1/2 left-0 w-1.5 h-px -translate-y-1/2 -translate-x-3 sm:-translate-x-5",
+          "top-1/2 right-0 w-1.5 h-px -translate-y-1/2 translate-x-3 sm:translate-x-5",
+        ].map((c) => (
+          <span key={c} aria-hidden className={`absolute bg-faint ${c}`} />
+        ))}
         <span
           aria-hidden
-          className="absolute bottom-1 end-1 h-2.5 w-2.5 rounded-full border-2 border-background bg-good"
+          className="absolute inset-0 rounded-full border border-input bg-card"
+        />
+        <VertexPortrait className="absolute inset-0 h-full w-full rounded-full" />
+        <span
+          aria-hidden
+          className="beacon-dot absolute bottom-1 end-1 h-2.5 w-2.5"
         />
       </div>
 
@@ -107,7 +109,6 @@ export function Hero() {
       />
 
       <div className="container relative z-10">
-        {/* Narrow: the marker sits in the flow above the copy. */}
         {!isWide && (
           <div className="mb-6 flex justify-center sm:mb-8">{marker}</div>
         )}
@@ -196,7 +197,6 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Wide: pinned into the empty half opposite the copy. */}
         {isWide && (
           <div className="pointer-events-none absolute inset-y-0 end-0 flex w-[38%] items-center justify-center">
             {marker}

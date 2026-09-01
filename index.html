@@ -5,23 +5,18 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Sonia Fatholahi, Senior Software Engineer specializing in Backend & DevOps with Golang, Python, Linux, and Docker." />
+    <meta name="description" content="Sony Fatholahi, Senior Software Engineer specializing in Backend & DevOps with Golang, Python, Linux, and Docker." />
     <meta name="theme-color" content="#08090b" />
 
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Sonia Fatholahi · Senior Software Engineer · Backend & DevOps" />
+    <meta property="og:title" content="Sony Fatholahi · Senior Software Engineer · Backend & DevOps" />
     <meta property="og:description" content="Self-taught senior software engineer specializing in Backend & DevOps with Golang, Python, Linux, and Docker." />
-    <meta property="og:image" content="/avatar.png" />
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Sonia Fatholahi · Senior Software Engineer · Backend & DevOps" />
+    <meta property="og:image" content="https://www.sonycore.dev/og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Sony Fatholahi · Senior Software Engineer · Backend & DevOps" />
     <meta name="twitter:description" content="Self-taught senior software engineer specializing in Backend & DevOps with Golang, Python, Linux, and Docker." />
-    <meta name="twitter:image" content="/avatar.png" />
+    <meta name="twitter:image" content="https://www.sonycore.dev/og.png" />
 
-    <!--
-      Must stay ahead of every stylesheet link. A pending stylesheet blocks
-      execution of any later script, and a blocked inline script blocks the
-      HTML parser - which would stall the boot screen below out of existence.
-    -->
     <script>
       (function () {
         try {
@@ -46,16 +41,10 @@
       })();
     </script>
 
-    <link rel="preload" href="/avatar.png" as="image" fetchpriority="high" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://github-contributions-api.jogruber.de" crossorigin />
     <link rel="preconnect" href="https://streak-stats.demolab.com" />
-    <!--
-      Loaded non-render-blocking: media="print" keeps it off the critical path,
-      then onload promotes it. The faces use display=swap anyway, so text was
-      never waiting on this request.
-    -->
     <link
       href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@300;400;500&family=Vazirmatn:wght@400;500;600;700&display=swap"
       rel="stylesheet"
@@ -68,18 +57,13 @@
         rel="stylesheet"
       />
     </noscript>
-    <title>Sonia Fatholahi · Senior Software Engineer · Backend & DevOps</title>
+    <title>Sony Fatholahi · Senior Software Engineer · Backend & DevOps</title>
 
-    <!--
-      schema.org Person. Parsers that read structured data (search engines,
-      recruiter tooling, link unfurlers) get the identity, skills and profile
-      links without executing the bundle.
-    -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "Person",
-        "name": "Sonia Fatholahi",
+        "name": "Sony Fatholahi",
         "jobTitle": "Senior Software Engineer",
         "description": "Senior Software Engineer working on backend systems and infrastructure: distributed services in Go and Python, event-driven pipelines, observability and on-call practice.",
         "url": "https://www.sonycore.dev/",
@@ -110,13 +94,6 @@
       }
     </script>
 
-    <!--
-      Critical CSS. This runs before the Tailwind bundle arrives, so it has to
-      stand alone: it paints the correct background (no white flash in dark
-      mode), defines .sr-only so the skip link stays hidden instead of
-      rendering as bare text, and styles the boot screen. Colours are the
-      palette's literals because the CSS custom properties aren't loaded yet.
-    -->
     <style>
       html {
         background: #fbfbfc;
@@ -128,7 +105,6 @@
         margin: 0;
       }
 
-      /* Matches Tailwind's .sr-only; the bundle redefines it identically. */
       .sr-only {
         position: absolute;
         width: 1px;
@@ -159,8 +135,6 @@
         pointer-events: none;
       }
 
-      /* Fades in slightly late, so a fast load shows a calm background rather
-         than a spinner that flashes for one frame. */
       .boot-inner {
         display: flex;
         flex-direction: column;
@@ -249,9 +223,6 @@
       Skip to content
     </a>
 
-    <!-- Boot screen: covers the gap before React mounts. main.tsx fades and
-         removes it on first paint. Initials are inlined because this has to
-         render without the app bundle. -->
     <div id="boot" role="status" aria-live="polite" aria-label="Loading">
       <div class="boot-inner">
         <div class="boot-mark" aria-hidden="true">
@@ -263,7 +234,6 @@
       </div>
     </div>
     <noscript>
-      <!-- Nothing will ever remove the overlay without JS. -->
       <style>
         #boot {
           display: none;
@@ -271,24 +241,15 @@
       </style>
     </noscript>
     <script>
-      // Safety valve: if the module never executes (network failure, parse
-      // error), don't strand the visitor behind a permanent spinner.
       setTimeout(function () {
         var boot = document.getElementById("boot");
         if (boot) boot.classList.add("boot-done");
       }, 15000);
     </script>
 
-    <!--
-      Static fallback for crawlers, no-JS agents and anything that doesn't
-      execute the bundle - without it they only see the boot screen's
-      "Loading". React clears these children when it mounts into #root, and
-      the boot overlay covers them until it does, so this is never seen by a
-      normal visitor. Keep in sync with the hero copy in src/locales/en.json.
-    -->
     <div id="root">
       <article>
-        <h1>Sonia Fatholahi</h1>
+        <h1>Sony Fatholahi</h1>
         <p><strong>Senior Software Engineer</strong>. Backend · Distributed Systems · DevSecOps</p>
         <p>
           I design and operate backend systems and the infrastructure they run

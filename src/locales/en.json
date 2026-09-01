@@ -158,6 +158,9 @@
       "namira-core": {
         "description": "A high-performance, self-hosted quality assurance toolkit for VPN proxy configurations. Validates, benchmarks, and ranks VMess, VLESS, Trojan, and Shadowsocks connections with real TCP handshakes and latency measurements."
       },
+      "hydra": {
+        "description": "Hydra Download Manager (HDM) is an open-source, high-performance network file retriever and download accelerator designed for speed, resilience, and adaptability"
+      },
       "xraygen": {
         "description": "Generates XRay JSON configs and automates XRay deployment on the server side."
       },

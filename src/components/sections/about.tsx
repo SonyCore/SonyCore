@@ -15,10 +15,6 @@ export function About() {
         {t.resume.about}
       </p>
 
-      {/* Soft skills as a bordered grid rather than cards - the rules carry
-          the structure, matching the skills and credentials sections. */}
-      {/* The dl carries its own bottom rule so a partly-filled last row still
-          closes with a full-width line. */}
       <dl className="mt-12 grid border-y border-border sm:grid-cols-2 lg:grid-cols-3">
         {resume.softSkills.map((key) => {
           const s = t.softSkills[key as keyof typeof t.softSkills];

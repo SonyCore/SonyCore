@@ -11,8 +11,6 @@ export function Experience() {
       eyebrow={t.section.career}
       title={t.section.experienceTitle}
     >
-      {/* A rule down the left edge with a node per role - the same visual
-          grammar as the hero graph, flattened to one axis. */}
       <ol className="border-s border-border">
         {resume.experience.map((job) => {
           const tJob =
@@ -55,8 +53,6 @@ export function Experience() {
                     )}
                   </div>
 
-                  {/* Measured outcomes, if the role has them - these are what
-                      a recruiter scans for before reading any prose. */}
                   {tJob.metrics.length > 0 && (
                     <ul className="mt-4 flex flex-wrap gap-2">
                       {tJob.metrics.map((m: string, i: number) => (

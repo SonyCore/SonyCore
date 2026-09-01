@@ -12,7 +12,6 @@ export function useScrollSpy(sectionIds: string[], offset = 96): string {
         if (!el) continue;
         if (el.offsetTop <= scrollY) current = id;
       }
-      // If we're at the bottom of the page, force the last section active.
       if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 4) {
         current = sectionIds[sectionIds.length - 1] ?? current;
       }

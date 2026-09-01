@@ -162,6 +162,9 @@
       "xraygen": {
         "description": "پیکربندی‌های JSON برای XRay تولید کرده و فرایند استقرار XRay را در سمت سرور خودکار می‌کند."
       },
+      "hydra": {
+        "description": "Hydra Download Manager (HDM) یک بازیاب فایل شبکه‌ای و شتاب‌دهنده دانلود متن‌باز با کارایی بالا است که برای سرعت، مقاومت و سازگاری طراحی شده است."
+      },
       "cfscanner": {
         "description": "اسکنر Cloudflare. بخش Golang این پروژه را من نوشتم."
       },

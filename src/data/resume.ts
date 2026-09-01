@@ -15,18 +15,15 @@ export type ProjectEntry = {
 
 export type Skill = {
   name: string;
-  /** SVG filename (without extension) under /public/icons/. */
   icon: string;
-  /** Official documentation / homepage URL. */
   url: string;
 };
 
 export const resume = {
-  name: "Sonia Fatholahi",
+  name: "Sony Fatholahi",
   email: "soniafatholahi@proton.me",
   phone: "",
   location: "Türkiye, Ankara",
-  /** Labels the hero's anchor node on the network graph. */
   coords: { city: "Ankara", lat: 39.9334, lon: 32.8597 },
   scheduleUrl: "https://calendar.app.google/bcvLmj3UJ3N8kvCQ8",
   socials: {
@@ -140,6 +137,13 @@ export const resume = {
       date: "06/2025",
       url: "https://github.com/SonyCore/namira-core",
     },
+    {
+      id: "hydra",
+      name: "Hydra",
+      date: "08/2026",
+      url: "https://github.com/Ja7ad/hydra",
+    },
+
     {
       id: "xraygen",
       name: "XRayGen",
