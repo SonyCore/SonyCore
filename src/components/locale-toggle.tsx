@@ -7,6 +7,8 @@ export function LocaleToggle({ className }: { className?: string }) {
   const { locale, setLocale, locales, meta, t } = useLocale();
   const current = meta[locale];
 
+  if (locales.length < 2) return null;
+
   return (
     <div
       className={cn(
