@@ -1,8 +1,6 @@
 import en from "@/locales/en.json";
-import fa from "@/locales/fa.json";
-import tr from "@/locales/tr.json";
 
-export const LOCALES = ["en", "fa", "tr"] as const;
+export const LOCALES = ["en"] as const;
 export type Locale = (typeof LOCALES)[number];
 
 export const LOCALE_META: Record<
@@ -10,16 +8,12 @@ export const LOCALE_META: Record<
   { label: string; nativeLabel: string; flag: string; dir: "ltr" | "rtl" }
 > = {
   en: { label: "English", nativeLabel: "English", flag: "🇬🇧", dir: "ltr" },
-  fa: { label: "Persian", nativeLabel: "فارسی", flag: "🇮🇷", dir: "rtl" },
-  tr: { label: "Turkish", nativeLabel: "Türkçe", flag: "🇹🇷", dir: "ltr" },
 };
 
 export type Translation = typeof en;
 
 const RESOURCES: Record<Locale, Translation> = {
   en,
-  fa: fa as unknown as Translation,
-  tr: tr as unknown as Translation,
 };
 
 export function isLocale(value: unknown): value is Locale {

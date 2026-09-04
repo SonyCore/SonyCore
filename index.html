@@ -31,12 +31,12 @@
         } catch (_) {}
         try {
           var loc = localStorage.getItem("locale");
-          if (!loc || !/^(en|fa|tr)$/.test(loc)) {
+          if (!loc || !/^(en)$/.test(loc)) {
             var b = (navigator.language || "en").slice(0, 2).toLowerCase();
-            loc = /^(en|fa|tr)$/.test(b) ? b : "en";
+            loc = /^(en)$/.test(b) ? b : "en";
           }
           document.documentElement.lang = loc;
-          document.documentElement.dir = loc === "fa" ? "rtl" : "ltr";
+          document.documentElement.dir = "ltr";
         } catch (_) {}
       })();
     </script>
@@ -46,14 +46,14 @@
     <link rel="preconnect" href="https://github-contributions-api.jogruber.de" crossorigin />
     <link rel="preconnect" href="https://streak-stats.demolab.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@300;400;500&family=Vazirmatn:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@300;400;500&display=swap"
       rel="stylesheet"
       media="print"
       onload="this.media='all'"
     />
     <noscript>
       <link
-        href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@300;400;500&family=Vazirmatn:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@300;400;500&display=swap"
         rel="stylesheet"
       />
     </noscript>
@@ -79,7 +79,7 @@
           "https://t.me/SoniaCircuit",
           "https://youtube.com/@SoniaCircuit"
         ],
-        "knowsLanguage": ["fa", "tr", "en"],
+        "knowsLanguage": ["en"],
         "knowsAbout": [
           "Backend Development", "Distributed Systems", "DevSecOps",
           "Site Reliability Engineering", "Observability", "Incident Response",

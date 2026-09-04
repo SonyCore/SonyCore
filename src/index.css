@@ -43,12 +43,6 @@
     --radius: 0.625rem;
   }
 
-  :root[lang="fa"] {
-    --font-sans: "Vazirmatn", "Inter Tight", ui-sans-serif, system-ui, sans-serif;
-    --font-mono: "Vazirmatn", "JetBrains Mono", ui-monospace, monospace;
-    --font-display: "Vazirmatn", var(--font-sans);
-  }
-
   .dark {
     --background: 220 15.8% 3.7%; /* #08090b */
     --foreground: 216 12.2% 92%; /* #e8eaed */

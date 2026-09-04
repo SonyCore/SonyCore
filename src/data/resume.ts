@@ -182,9 +182,7 @@ export const resume = {
     "Time Management",
   ],
   languages: [
-    { name: "Persian", level: "Native / Bilingual" },
     { name: "English", level: "Proficient" },
-    { name: "Turkish", level: "Basic" },
   ],
 } as const;
 
