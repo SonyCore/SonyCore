@@ -28,7 +28,7 @@ export const resume = {
   scheduleUrl: "https://calendar.app.google/bcvLmj3UJ3N8kvCQ8",
   socials: {
     github: "https://github.com/SonyCore",
-    linkedin: "https://www.linkedin.com/in/soniafatholahi",
+    linkedin: "https://www.linkedin.com/in/sonycore",
     telegram: "https://t.me/SoniaCircuit",
     youtube: "https://youtube.com/@SoniaCircuit",
   },
