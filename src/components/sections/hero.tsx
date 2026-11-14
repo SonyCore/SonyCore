@@ -1,208 +1,61 @@
 import {
   CalendarClock,
-  Download,
+  FileText,
   Github,
   Linkedin,
   Mail,
-  MapPin,
   Send,
   Youtube,
 } from "lucide-react";
-import { useRef } from "react";
-import { Button } from "@/components/ui/button";
-import { NodeGraph } from "@/components/node-graph";
-import { VertexPortrait } from "@/components/vertex-portrait";
-import { WorldMap } from "@/components/world-map";
 import { resume } from "@/data/resume";
 import { useLocale } from "@/hooks/use-locale";
-import { useMediaQuery } from "@/hooks/use-media-query";
-import { useElementCenter } from "@/hooks/use-element-center";
-
-function scrollToId(id: string) {
-  document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-}
-
-const HALO =
-  "0 0 24px hsl(var(--background)), 0 0 12px hsl(var(--background)), 0 0 4px hsl(var(--background))";
-
-const SOCIALS = [
-  { key: "github", label: "GitHub", Icon: Github },
-  { key: "linkedin", label: "LinkedIn", Icon: Linkedin },
-  { key: "telegram", label: "Telegram", Icon: Send },
-  { key: "youtube", label: "YouTube", Icon: Youtube },
-] as const;
-
-function formatCoord(value: number, positive: string, negative: string) {
-  return `${Math.abs(value).toFixed(2)}°${value >= 0 ? positive : negative}`;
-}
+import { ext } from "@/lib/utils";
 
 export function Hero() {
   const { t } = useLocale();
-  const markerRef = useRef<HTMLDivElement>(null);
-  const sectionRef = useRef<HTMLElement>(null);
-  const isWide = useMediaQuery("(min-width: 768px)");
-  const markerCenter = useElementCenter(markerRef, sectionRef);
-
-  const { city, lat, lon } = resume.coords;
-  const geoLabel = `${formatCoord(lat, "N", "S")} ${formatCoord(lon, "E", "W")}`;
-  const marker = (
-    <figure className="flex flex-col items-center gap-5 sm:gap-10">
-      <div
-        ref={markerRef}
-        role="img"
-        aria-label={`${resume.name}, ${city}`}
-        className="relative h-16 w-16 sm:h-28 sm:w-28 md:h-32 md:w-32"
-      >
-        <span
-          aria-hidden
-          className="absolute -inset-4 rounded-full border border-border sm:-inset-7"
-        />
-        <span
-          aria-hidden
-          className="absolute -inset-2 rounded-full border border-input sm:-inset-3.5"
-        />
-        {[
-          "left-1/2 top-0 h-1.5 w-px -translate-x-1/2 -translate-y-3 sm:-translate-y-5",
-          "left-1/2 bottom-0 h-1.5 w-px -translate-x-1/2 translate-y-3 sm:translate-y-5",
-          "top-1/2 left-0 w-1.5 h-px -translate-y-1/2 -translate-x-3 sm:-translate-x-5",
-          "top-1/2 right-0 w-1.5 h-px -translate-y-1/2 translate-x-3 sm:translate-x-5",
-        ].map((c) => (
-          <span key={c} aria-hidden className={`absolute bg-faint ${c}`} />
-        ))}
-        <span
-          aria-hidden
-          className="absolute inset-0 rounded-full border border-input bg-card"
-        />
-        <VertexPortrait className="absolute inset-0 h-full w-full rounded-full" />
-        <span
-          aria-hidden
-          className="beacon-dot absolute bottom-1 end-1 h-2.5 w-2.5"
-        />
-      </div>
-
-      <figcaption
-        className="whitespace-nowrap text-center font-mono text-[10px] uppercase leading-relaxed tracking-[0.08em] text-muted-foreground"
-        style={{ textShadow: HALO }}
-      >
-        {city}
-        <span className="block text-subtle">{geoLabel}</span>
-      </figcaption>
-    </figure>
-  );
+  const links = [
+    { label: "Email", href: `mailto:${resume.email}`, Icon: Mail, attrs: {} },
+    {
+      label: t.hero.cv,
+      href: "/resume.pdf",
+      Icon: FileText,
+      attrs: { download: "Sonia-Fatholahi-Resume.pdf" },
+    },
+    { label: "GitHub", href: resume.socials.github, Icon: Github, attrs: ext },
+    { label: "LinkedIn", href: resume.socials.linkedin, Icon: Linkedin, attrs: ext },
+    { label: "Telegram", href: resume.socials.telegram, Icon: Send, attrs: ext },
+    { label: "YouTube", href: resume.socials.youtube, Icon: Youtube, attrs: ext },
+    { label: t.hero.scheduleMeeting, href: resume.scheduleUrl, Icon: CalendarClock, attrs: ext },
+  ];
 
   return (
-    <section
-      ref={sectionRef}
-      id="home"
-      className="relative flex min-h-[calc(100svh-3.75rem)] scroll-mt-20 items-center overflow-hidden border-b border-border py-8 sm:py-10 md:py-16"
-    >
-      <WorldMap
-        lon={lon}
-        lat={lat}
-        at={markerCenter}
-        className="pointer-events-none absolute inset-0 z-0"
-      />
-
-      <NodeGraph
-        anchorRef={markerRef}
-        className="pointer-events-none absolute inset-0 z-0 overflow-hidden"
-      />
-
-      <div className="container relative z-10">
-        {!isWide && (
-          <div className="mb-6 flex justify-center sm:mb-8">{marker}</div>
-        )}
-
-        <div
-          className="max-w-3xl animate-fade-in"
-          style={{ animationDelay: "120ms", animationFillMode: "both" }}
-        >
-          <span className="mb-5 inline-flex items-center gap-2 rounded-full md:mb-7 border border-input bg-background/60 px-2.5 py-1.5 font-mono text-[11px] tracking-[0.02em] text-muted-foreground backdrop-blur-sm">
-            <span className="live-dot" />
-            {t.resume.specialty}
-          </span>
-
-          <h1 className="mb-3 text-balance font-sans text-[clamp(2.25rem,7.5vw,6.5rem)] font-extrabold leading-[0.96] tracking-[-0.04em]">
-            {resume.name}
-          </h1>
-
-          <p
-            className="mb-5 text-balance font-display md:mb-7 text-[clamp(1.125rem,3.4vw,2.5rem)] font-light leading-[1.1] tracking-[-0.02em] text-subtle"
-            style={{ textShadow: HALO }}
-          >
-            {t.resume.title}
-          </p>
-
-          <p
-            className="mb-6 line-clamp-3 max-w-xl text-pretty text-sm leading-relaxed text-muted-foreground md:mb-9 md:line-clamp-none md:text-lg"
-            style={{ textShadow: HALO }}
-          >
-            {t.resume.about}
-          </p>
-
-          <div
-            className="mb-6 flex flex-wrap items-center gap-x-5 gap-y-1 font-mono text-[11px] text-subtle md:mb-9 md:text-xs"
-            style={{ textShadow: HALO }}
-          >
-            <span className="inline-flex items-center gap-1.5">
-              <MapPin className="h-3.5 w-3.5" /> {resume.location}
-            </span>
+    <section id="home" className="pt-10 sm:pt-14">
+      <h1 className="font-sans text-[2rem] font-bold leading-tight tracking-[-0.022em]">
+        {resume.name}
+      </h1>
+      <p className="mt-1 font-sans text-[1.0625rem] font-medium">{t.resume.title}</p>
+      <p className="mt-2 text-muted-foreground">
+        {t.resume.specialty}
+        <br />
+        {resume.location} ·{" "}
+        <a className="link" href={`mailto:${resume.email}`}>
+          {resume.email}
+        </a>
+      </p>
+      <ul className="mt-5 flex flex-wrap gap-2">
+        {links.map(({ label, href, Icon, attrs }) => (
+          <li key={label}>
             <a
-              className="-my-2 inline-flex items-center gap-1.5 py-2 transition-colors hover:text-foreground"
-              href={`mailto:${resume.email}`}
-              dir="ltr"
+              href={href}
+              {...attrs}
+              className="inline-flex items-center gap-1.5 rounded border border-input px-2.5 py-1 font-sans text-[0.8125rem] font-medium text-muted-foreground transition-colors hover:border-brand/50 hover:text-brand"
             >
-              <Mail className="h-3.5 w-3.5" /> {resume.email}
+              <Icon className="h-3.5 w-3.5" />
+              {label}
             </a>
-          </div>
-
-          <div className="flex flex-wrap items-center gap-3">
-            <Button asChild>
-              <a href="/resume.pdf" download="Sonia-Fatholahi-Resume.pdf">
-                <Download /> {t.hero.downloadCv}
-              </a>
-            </Button>
-            <Button asChild variant="outline">
-              <a
-                href={resume.scheduleUrl}
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                <CalendarClock /> {t.hero.scheduleMeeting}
-              </a>
-            </Button>
-            <Button
-              variant="ghost"
-              className="hidden md:inline-flex"
-              onClick={() => scrollToId("contact")}
-            >
-              <Mail /> {t.hero.contactMe}
-            </Button>
-          </div>
-
-          <div className="mt-7 flex items-center gap-1 border-t border-border pt-4 font-mono text-[11px] uppercase tracking-[0.06em] sm:gap-5 sm:pt-6">
-            {SOCIALS.map(({ key, label, Icon }) => (
-              <a
-                key={key}
-                href={resume.socials[key]}
-                target="_blank"
-                rel="noreferrer noopener"
-                aria-label={label}
-                className="inline-flex h-11 w-11 items-center justify-center gap-1.5 text-subtle transition-colors hover:text-foreground sm:-my-2 sm:h-auto sm:w-auto sm:justify-start sm:py-2"
-              >
-                <Icon className="h-4 w-4 sm:h-3.5 sm:w-3.5" />
-                <span className="hidden sm:inline">{label}</span>
-              </a>
-            ))}
-          </div>
-        </div>
-
-        {isWide && (
-          <div className="pointer-events-none absolute inset-y-0 end-0 flex w-[38%] items-center justify-center">
-            {marker}
-          </div>
-        )}
-      </div>
+          </li>
+        ))}
+      </ul>
     </section>
   );
 }
