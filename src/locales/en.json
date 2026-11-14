@@ -24,9 +24,9 @@
   },
   "resume": {
     "title": "Senior Software Engineer",
-    "specialty": "Backend · Distributed Systems · DevSecOps",
+    "specialty": "DevSecOps · Backend · Frontend · Data · AI",
     "tagline": "Golang • Python • Linux • Open-source",
-    "about": "I design and operate backend systems and the infrastructure they run on: distributed services in Go and Python, event-driven pipelines, and the observability and on-call practice that keeps them reliable in production."
+    "about": "I build across the whole stack: DevSecOps, backend, frontend, data and AI. I design and run the infrastructure (CI/CD, identity and secrets, observability, and Terraform-provisioned datastores across production datacenters), write the backend services on top of it in Go and Python, build the frontends people use, and wire up the data pipelines and AI features behind them."
   },
   "softSkills": {
     "Communication": {
