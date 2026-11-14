@@ -22,16 +22,11 @@ export function Experience() {
                     <span className="text-subtle"> · {job.location}</span>
                   )}
                 </p>
-                <details className="mt-1">
-                  <summary className="cursor-pointer font-sans text-[0.8125rem] font-medium text-brand">
-                    {t.experience.details}
-                  </summary>
-                  <ul className="mt-2 list-disc space-y-1 ps-5 text-[0.9375rem] text-muted-foreground marker:text-faint">
-                    {tJob.bullets.map((b) => (
-                      <li key={b}>{b}</li>
-                    ))}
-                  </ul>
-                </details>
+                <ul className="mt-2 list-disc space-y-1 ps-5 text-[0.9375rem] text-muted-foreground marker:text-faint">
+                  {tJob.bullets.map((b) => (
+                    <li key={b}>{b}</li>
+                  ))}
+                </ul>
               </div>
             </li>
           );
