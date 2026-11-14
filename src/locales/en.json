@@ -55,6 +55,7 @@
   },
   "proficiency": {
     "Native / Bilingual": "Native / Bilingual",
+    "Native": "Native",
     "Proficient": "Proficient",
     "Basic": "Basic"
   },
