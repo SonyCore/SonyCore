@@ -6,9 +6,7 @@ import { ArrowLeft, ArrowUpRight, Calendar, Clock } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { ThemeToggle } from "@/components/theme-toggle";
-import { LocaleToggle } from "@/components/locale-toggle";
+import { TopBar } from "@/components/top-bar";
 import { Footer } from "@/components/sections/footer";
 import { posts } from "@/blog/loader";
 import { resume } from "@/data/resume";
@@ -27,43 +25,14 @@ export function BlogPostPage() {
     return <Navigate to="/#blog" replace />;
   }
 
-  const initials = resume.name
-    .split(" ")
-    .map((n) => n[0])
-    .join("");
-
   return (
     <div className="flex min-h-screen flex-col">
-      <header className="sticky top-0 z-40 w-full border-b border-border bg-background/[0.72] backdrop-blur-xl backdrop-saturate-150">
-        <div className="container flex h-[60px] items-center justify-between gap-4">
-          <Link
-            to="/"
-            className="flex items-center gap-2.5 text-[15px] font-medium tracking-[-0.01em]"
-          >
-            <Avatar className="h-7 w-7 rounded-md border border-border">
-              <AvatarFallback className="rounded-md bg-card font-mono text-[10px] text-subtle">
-                {initials}
-              </AvatarFallback>
-            </Avatar>
-            <span className="hidden sm:inline">{resume.name}</span>
-          </Link>
+      <TopBar />
 
-          <div className="flex items-center gap-2">
-            <Button asChild variant="ghost" size="sm" className="hidden sm:inline-flex">
-              <Link to="/#blog" aria-label={t.blog.allPosts}>
-                <ArrowLeft className="rtl:rotate-180" /> {t.blog.allPosts}
-              </Link>
-            </Button>
-            <LocaleToggle />
-            <ThemeToggle />
-          </div>
-        </div>
-      </header>
-
-      <main className="container max-w-3xl flex-1 py-12 md:py-16">
+      <main className="wrap w-full flex-1 py-10 md:py-14">
         <Link
           to="/#blog"
-          className="mb-6 inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.06em] text-subtle hover:text-foreground sm:hidden"
+          className="mb-6 inline-flex items-center gap-1.5 font-sans text-[0.8125rem] font-medium text-subtle hover:text-foreground"
         >
           <ArrowLeft className="h-3.5 w-3.5 rtl:rotate-180" />
           {t.blog.allPosts}
@@ -71,10 +40,10 @@ export function BlogPostPage() {
 
         <article>
           <header className="mb-8 space-y-5">
-            <h1 className="text-balance text-[clamp(2rem,4.5vw,3.25rem)] font-medium leading-[1.05] tracking-[-0.03em]">
+            <h1 className="text-balance text-[clamp(1.75rem,4vw,2.25rem)] font-sans font-bold leading-[1.1] tracking-[-0.022em]">
               {post.title}
             </h1>
-            <div className="flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-[11px] uppercase tracking-[0.06em] text-subtle">
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-2 font-sans text-[0.8125rem] text-subtle">
               <span className="inline-flex items-center gap-1.5">
                 <Calendar className="h-3.5 w-3.5" />
                 <span dir="ltr">{post.date}</span>

@@ -1,13 +1,11 @@
 import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { NavBar } from "@/components/nav-bar";
-import { BackToTop } from "@/components/back-to-top";
+import { TopBar } from "@/components/top-bar";
 import { Hero } from "@/components/sections/hero";
 import { About } from "@/components/sections/about";
 import { Experience } from "@/components/sections/experience";
 import { Skills } from "@/components/sections/skills";
 import { Projects } from "@/components/sections/projects";
-
 import { Blog } from "@/components/sections/blog";
 import { Certificates } from "@/components/sections/certificates";
 import { Contact } from "@/components/sections/contact";
@@ -82,22 +80,21 @@ export function HomePage() {
 
   return (
     <>
-      <NavBar />
-      <main>
+      <TopBar />
+      <main className="wrap">
         <Hero />
+        <About />
         <Experience />
         <Projects />
         <Skills />
-        <WhenNear minHeight={620}>
+        <WhenNear minHeight={180}>
           <GitHubSection />
         </WhenNear>
-        <About />
         <Blog />
         <Certificates />
         <Contact />
       </main>
       <Footer />
-      <BackToTop />
     </>
   );
 }

@@ -1,39 +1,25 @@
 {
   "nav": {
-    "home": "Home",
     "about": "About",
     "experience": "Experience",
-    "skills": "Skills",
     "projects": "Projects",
+    "skills": "Skills",
     "github": "GitHub",
     "blog": "Blog",
-    "certificates": "Certificates",
-    "contact": "Contact",
-    "openMenu": "Open menu",
-    "languageLabel": "Language"
+    "certificates": "Certificates"
   },
   "hero": {
-    "greeting": "Hi there 👋, I'm",
-    "downloadCv": "Download CV",
-    "contactMe": "Contact me",
-    "scheduleMeeting": "Schedule a meeting"
+    "cv": "CV",
+    "scheduleMeeting": "Schedule a call"
   },
   "section": {
-    "profile": "Profile",
     "aboutTitle": "About Me",
-    "career": "Career",
     "experienceTitle": "Experience",
-    "toolbox": "Toolbox",
     "skillsTitle": "Skills",
-    "work": "Work",
     "projectsTitle": "Projects",
-    "activity": "Activity",
     "githubTitle": "GitHub",
-    "writing": "Writing",
     "blogTitle": "Blog",
-    "credentials": "Credentials",
-    "certsAndLangsTitle": "Certificates & Languages",
-    "reachOut": "Reach out",
+    "certsAndLangsTitle": "Certificates",
     "contactTitle": "Contact"
   },
   "resume": {
@@ -77,7 +63,6 @@
   },
   "experience": {
     "present": "Present",
-    "currentBadge": "Now",
     "items": {
       "qubitorbit": {
         "role": "Infrastructure (DevSecOps) & Back End Developer",
@@ -148,10 +133,10 @@
           "FIREWALL + PERMISSIONS"
         ]
       }
-    }
+    },
+    "details": "Details"
   },
   "projects": {
-    "viewOnGithub": "View on GitHub",
     "items": {
       "namira-core": {
         "description": "A high-performance, self-hosted quality assurance toolkit for VPN proxy configurations. Validates, benchmarks, and ranks VMess, VLESS, Trojan, and Shadowsocks connections with real TCP handshakes and latency measurements."
@@ -180,11 +165,9 @@
     }
   },
   "github": {
-    "contributionGraph": "Contribution graph",
-    "viewProfile": "View profile"
+    "viewProfile": "View on GitHub"
   },
   "certificates": {
-    "heading": "Certificates",
     "languagesHeading": "Languages",
     "items": [
       "Programming in Golang, University of California, Irvine",
@@ -193,21 +176,11 @@
     ]
   },
   "contact": {
-    "blurb": "Have an opportunity, a question, or just want to say hi? Send me a message. It opens your mail client pre-filled to ",
-    "blurbSuffix": ".",
-    "name": "Name",
-    "email": "Email",
-    "message": "Message",
-    "placeholderName": "Jane Doe",
-    "placeholderMessage": "Tell me a bit about what you're working on…",
-    "sendViaMail": "Send via mail",
-    "openMailto": "Open mailto directly"
-  },
-  "footer": {
-    "builtWith": "Built with React, Vite & shadcn/ui."
+    "blurb": "Have an opportunity, a question, or just want to say hi? Email",
+    "or": "or",
+    "schedule": "schedule a call"
   },
   "misc": {
-    "backToTop": "Back to top",
     "loading": "Loading"
   },
   "blog": {

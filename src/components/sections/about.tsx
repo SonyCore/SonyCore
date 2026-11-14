@@ -5,34 +5,15 @@ import { useLocale } from "@/hooks/use-locale";
 export function About() {
   const { t } = useLocale();
   return (
-    <Section
-      id="about"
-      eyebrow={t.section.profile}
-      title={t.section.aboutTitle}
-      aside={t.resume.tagline}
-    >
-      <p className="max-w-3xl text-pretty text-lg leading-relaxed text-muted-foreground">
-        {t.resume.about}
+    <Section id="about" title={t.section.aboutTitle}>
+      <p>{t.resume.about}</p>
+      <p className="mt-3 text-muted-foreground">
+        {t.resume.tagline}. I work best through{" "}
+        {resume.softSkills
+          .map((k) => t.softSkills[k as keyof typeof t.softSkills].name.toLowerCase())
+          .join(", ")}
+        .
       </p>
-
-      <dl className="mt-12 grid border-y border-border sm:grid-cols-2 lg:grid-cols-3">
-        {resume.softSkills.map((key) => {
-          const s = t.softSkills[key as keyof typeof t.softSkills];
-          return (
-            <div
-              key={key}
-              className="border-b border-border py-5 sm:pe-8 lg:pe-10"
-            >
-              <dt className="font-mono text-[11px] uppercase tracking-[0.06em] text-brand">
-                {s.name}
-              </dt>
-              <dd className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                {s.detail}
-              </dd>
-            </div>
-          );
-        })}
-      </dl>
     </Section>
   );
 }
