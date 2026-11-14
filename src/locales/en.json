@@ -26,7 +26,7 @@
     "title": "Senior Software Engineer",
     "specialty": "DevSecOps · Backend · Frontend · Data · AI",
     "tagline": "Golang • Python • Linux • Open-source",
-    "about": "I build across the whole stack: DevSecOps, backend, frontend, data and AI. I design and run the infrastructure (CI/CD, identity and secrets, observability, and Terraform-provisioned datastores across production datacenters), write the backend services on top of it in Go and Python, build the frontends people use, and wire up the data pipelines and AI features behind them."
+    "about": "Engineer working across DevSecOps, backend, frontend, data and AI. Designs and runs the infrastructure (CI/CD, identity and secrets, observability, and Terraform-provisioned datastores across production datacenters), writes the backend services on top of it in Go and Python, builds the frontends people use, and wires up the data pipelines and AI features behind them."
   },
   "softSkills": {
     "Communication": {
