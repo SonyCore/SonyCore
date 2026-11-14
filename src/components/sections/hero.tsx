@@ -37,7 +37,6 @@ export function Hero() {
       <p className="mt-2 text-muted-foreground">
         {t.resume.specialty}
         <br />
-        {resume.location} ·{" "}
         <a className="link" href={`mailto:${resume.email}`}>
           {resume.email}
         </a>
