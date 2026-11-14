@@ -66,12 +66,22 @@
     "present": "Present",
     "items": {
       "qubitorbit": {
-        "role": "Infrastructure (DevSecOps) & Back End Developer",
+        "role": "Infrastructure & Back End Developer",
         "bullets": [
-          "Building backend systems and developer tooling for the platform.",
-          "WIP..."
+          "Built an end-to-end CI/CD pipeline and deployed the IAM and security infrastructure: Authentik for SSO and identity, and Vault for secrets management.",
+          "Deployed the core observability stack: Sentry for error tracking, ELK for distributed tracing, and ClickStack for infrastructure log aggregation.",
+          "Developed several sections of the company's commodity-focused financial assistant application.",
+          "Introduced Terraform into the infrastructure stack and used it to provision Kafka and PostgreSQL.",
+          "Maintain two production datacenters for application uptime, with critical alerting across essential services.",
+          "Deployed a full DHCP/DNS setup and a Tailscale-reachable gateway, giving direct, secure connectivity between both datacenters.",
+          "Implemented point-in-time recovery (PITR) for the Patroni-managed PostgreSQL cluster and provisioned additional services with Ansible."
         ],
-        "metrics": []
+        "metrics": [
+          "SSO + SECRETS (AUTHENTIK, VAULT)",
+          "TERRAFORM IaC",
+          "2 PRODUCTION DATACENTERS",
+          "POSTGRES PITR"
+        ]
       },
       "private-ar": {
         "role": "Backend Developer",
@@ -134,8 +144,7 @@
           "FIREWALL + PERMISSIONS"
         ]
       }
-    },
-    "details": "Details"
+    }
   },
   "projects": {
     "items": {

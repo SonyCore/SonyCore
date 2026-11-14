@@ -38,7 +38,7 @@ export const resume = {
       company: "QubitOrbit",
       startDate: "11/2025",
       endDate: null,
-      location: "Dubai, UAE · Remote",
+      location: "Dubai",
     },
     {
       id: "private-ar",
