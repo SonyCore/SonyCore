@@ -3,7 +3,6 @@ import {
   FileText,
   Github,
   Linkedin,
-  Mail,
   Send,
   Youtube,
 } from "lucide-react";
@@ -14,12 +13,11 @@ import { ext } from "@/lib/utils";
 export function Hero() {
   const { t } = useLocale();
   const links = [
-    { label: "Email", href: `mailto:${resume.email}`, Icon: Mail, attrs: {} },
     {
       label: t.hero.cv,
-      href: "/resume.pdf",
+      href: "/resume",
       Icon: FileText,
-      attrs: { download: "Sony-Resume.pdf" },
+      attrs: {},
     },
     { label: "GitHub", href: resume.socials.github, Icon: Github, attrs: ext },
     { label: "LinkedIn", href: resume.socials.linkedin, Icon: Linkedin, attrs: ext },
@@ -36,10 +34,6 @@ export function Hero() {
       <p className="mt-1 font-sans text-[1.0625rem] font-medium">{t.resume.title}</p>
       <p className="mt-2 text-muted-foreground">
         {t.resume.specialty}
-        <br />
-        <a className="link" href={`mailto:${resume.email}`}>
-          {resume.email}
-        </a>
       </p>
       <ul className="mt-5 flex flex-wrap gap-2">
         {links.map(({ label, href, Icon, attrs }) => (

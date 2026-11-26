@@ -45,7 +45,7 @@ export function ResumePage() {
           {t.resume.title}, {t.resume.specialty}
         </p>
         <p className="mt-2 text-[13px] leading-relaxed" dir="ltr">
-          {resume.email} · {resume.location} · {github} · {linkedin}
+          {resume.location} · {github} · {linkedin}
         </p>
       </header>
 

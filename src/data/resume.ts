@@ -21,7 +21,6 @@ export type Skill = {
 
 export const resume = {
   name: "Sony",
-  email: "",
   phone: "",
   location: "Türkiye, Ankara",
   coords: { city: "Ankara", lat: 39.9334, lon: 32.8597 },

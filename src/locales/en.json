@@ -186,9 +186,9 @@
     ]
   },
   "contact": {
-    "blurb": "Have an opportunity, a question, or just want to say hi? Email",
-    "or": "or",
-    "schedule": "schedule a call"
+    "blurb": "Have an opportunity, a question, or just want to say hi?",
+    "schedule": "Schedule a call",
+    "or": "or reach out on"
   },
   "misc": {
     "loading": "Loading"
