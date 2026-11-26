@@ -15,9 +15,9 @@ export function Hero() {
   const links = [
     {
       label: t.hero.cv,
-      href: "/resume",
+      href: "/resume.pdf",
       Icon: FileText,
-      attrs: {},
+      attrs: { download: "Sony-Resume.pdf" },
     },
     { label: "GitHub", href: resume.socials.github, Icon: Github, attrs: ext },
     { label: "LinkedIn", href: resume.socials.linkedin, Icon: Linkedin, attrs: ext },
